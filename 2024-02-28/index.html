@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buttons</title>
+    <style>
+        .btn.logo{
+            background-color:aqua;
+            display:inline-flex;
+            padding:10px 20px; /*in css padding, first is vertical padding, second is horizontal padding*/
+            border-radius:30px;
+        }
+        .btnWrap{
+            display: flex;
+            gap: 20px; /* gap between each button element */
+            flex-direction: row;
+        }
+        .btnWrap{
+            background-color: aliceblue;
+        }
+        .menuWrap{
+
+        }
+    </style>
+</head>
+<body>
+    <div class="menuWrap"> <!--outermost autolayout(frame)! frame around logo and menu buttons-->
+        <div class="logo">
+            logo
+        </div>
+        <div class="btnWrap"> <!--another autolayout! frame around all menu buttons-->
+            <div class="btn">
+                menu01
+            </div>
+            <div class="btn">
+                menu02
+            </div>
+            <div class="btn"> <!--div acts as auto layout, i.e. frame, around the button-->
+                menu03
+            </div>
+        </div>
+    </div>
+</body>
+</html>
