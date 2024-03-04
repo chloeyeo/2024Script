@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0;padding:0;}
+        a:link{text-decoration:none;}
+        a:visited{color:black;}
+        .menu{display:flex; gap:10px;}
+        ul,li{list-style:none;}
+        .container{
+            width:1200px;
+            /* margin-left:auto;
+            margin-right:auto; */
+            margin: 0 auto; /*vertical horizontal*/ 
+            /* margin: 0 0 0 0; up right bottom left */
+        }
+        .d-flex{
+            display:flex;
+            justify-content: space-between;
+        }
+        .bg-primary{
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container d-flex">
+        <div class="logo">logo</div>
+        <ul class="menu">
+            <script>
+                const loc = ["seoul", "daegu", "incheon","busan"]; //array
+                const locLink = ["https://www.naver.com","https://www.daum.net","https://www.korea.com","https://www.naver.com"];
+                for (let i=0; i<loc.length; i++) {
+                    document.write("<li>");
+                    document.write(`<a href="${locLink[i]}">`);
+                    document.write(loc[i]);
+                    document.write("</a>");
+                    document.write("</li>");
+                }
+            </script>
+        </ul>
+    </div>
+    <div class="container bg-primary" style="height:300px">visual</div>
+    <script>
+        const arr = [90,10,20,30,40,50,60];
+        // var joined = arr.join(", ");
+        // console.log(joined);
+        // console.log(arr.slice(0,4));
+        // console.log(arr.slice(2,-1));
+        console.log(arr.indexOf(60));
+        arr.pop();
+        console.log(arr.indexOf(60));
+        arr.push(60);
+        console.log(arr.indexOf(60));
+        let num=0;
+        function multiply(newNum) {
+            let res = 2*4*newNum;
+            return res;
+        }
+        num = multiply(8);
+        document.write(num);
+    </script>
+</body>
+</html>
