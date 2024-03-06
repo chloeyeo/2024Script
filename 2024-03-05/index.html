@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .name{
+            color:blue;
+        }
+        .age{
+            color:rgb(228, 110, 14);
+        } */
+    </style>
+</head>
+<body>
+    <script>
+        // start event by pressing the button
+        function printMsg(name,age) {
+            alert(`you clicked the button\nyour new name is ${name} and age is ${age}`); 
+            document.getElementsByClassName('name')[0].innerHTML = name;
+            document.getElementsByClassName('age')[0].innerHTML = age;
+            document.getElementsByClassName('age')[0].style.fontWeight = "bold";
+
+            //$('.age').innerHTML = age; // this is JQuery. this is same as: document.getElementsByClassName('name')[0].innerHTML = name;
+        }
+        function nameAge(name, age) {
+            alert(`your name is ${name} and age is ${age}`); 
+        }
+    </script>
+
+    <div>
+        <span class="name">potter</span> goes to town and his age is <span class="age">11</span>.
+    </div>
+
+    <button onClick="printMsg('jake', '25')">alert button</button>
+    <button onClick="nameAge('potter', 20)">name age button</button>
+</body>
+</html>

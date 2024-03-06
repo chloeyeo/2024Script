@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+
+        .box1{
+            width:100px;
+            height:100px;
+            background-color: pink;
+            border: 7px solid #000;
+            box-sizing: border-box;
+        }
+
+        .box2{
+            width:100px;
+            height:100px;
+            padding:10px;
+            border-width:10px;
+            border-color:red;
+            border-style: solid;
+            background-color: skyblue;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <!-- block tags (size is whole screen): <h1>~<h6>, <div>, <p>, <ul>, <li>
+        inline tags (all fit in single line): a, img, <span>
+        display:flex; changes block tags to inline tags and vice versa
+        flex must be applied to the container containing the items to align the items within
+        ; not on the items themselves 
+        display:flex; -> automatically, justfiy-content is set to 'stretch', i.e. to fill parent's width and height
+        both justify-content and align-items must need display:flex; to work, otherwise they won't work
+        flex:1; aka flex:1 1 0; aka flex-grow:1; flex-shrink:1; flex-basis:0; must be applied to the child elements
+        where the parent element MUST have display:flex; then those child elements with flex:1; will have size
+        that is automatically the same as the parent element's size. without parent having display:flex;
+        the flex:1; applied to child elements will have no use.
+    -->
+
+    <div class="box1">
+        test
+    </div>
+    <div class="box2">
+        test
+    </div>
+</body>
+</html>
