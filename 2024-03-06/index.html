@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn,.btn-black{
+            font-size:14px;
+            background:skyblue;
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius:10px;
+            cursor:pointer;
+        }
+        .box{
+            color:gray;
+        }
+        .modal{
+            background-color:pink;
+            width:100px;
+            height:100px;
+            margin: 20px 0;;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box1"> <!--id name must be unique for that element; cannot have two box1s-->
+        test1
+    </div>
+    <div class="box" id="box2">
+        test2
+    </div>
+    <div class="box" id="box3">
+        test3
+    </div>
+    <div class="box" id="box4">
+        test4
+    </div>
+    
+    <div class="btn">change to red button</div>
+    <div class="btn-black">change to initial color button</div>
+    <div class="modal">modal element</div>
+
+    <script>
+        const button = document.getElementsByClassName('btn')[0];
+        const buttonBlack = document.getElementsByClassName('btn-black')[0];
+        const boxes = document.getElementsByClassName('box');
+        const modalElm = document.getElementsByClassName('modal')[0];
+
+        function changeColor(color="red") {
+            for (let i=0; i<boxes.length; i++) {
+                boxes[i].style.color = color;
+            }
+        }
+
+        button.addEventListener("click", function(){
+            changeColor();
+            modalElm.style.display = "none";
+        });
+
+        buttonBlack.addEventListener("click", function(){
+            changeColor("initial");
+            modalElm.style.display = "block";
+        });
+    </script>
+</body>
+</html>
