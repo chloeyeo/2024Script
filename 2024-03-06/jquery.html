@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> <!--jquery needs us to add jquery library to use: go to cdn js then search jquery then copy acript tag </> for min.js
+        (min files are for us to use) then paste the copied script tag inside <body>-->
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        .btn{
+            background:skyblue;
+            display:inline-block;
+            padding:5px 15px;
+        }
+        a:link,a:visited{
+            text-decoration:none;
+            color:black;
+        }
+        .btn1{
+            padding:5px 15px;
+            border: 8px none;
+            background-color:skyblue;
+            cursor:pointer;
+        }
+        .box{
+            width: 200px; /* w200 then tab, h200 then tab*/
+            height: 200px;
+            background: pink;
+            position:relative;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="btn">click</div> -->
+    <!-- <a href="#" class="btn">click</a> -->
+    <button class="btn1">click</button>
+    <div class="box">view</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        let viewToggle = true;
+
+        function toggle() {
+            if (viewToggle) {
+                $(".box").css("left", "-100%"); // $ can be replaced with jQuery
+                viewToggle = false;
+            } else {
+                $(".box").css("left", "0");
+                viewToggle = true;
+            }
+        }
+
+        $(".btn1").on("click", toggle);
+
+        /*function testAlert() {
+            alert('test');
+        }*/
+
+        // $(".btn1").on("click",testAlert); //same as below
+        /*$(".btn1").on("click", function(){ // $ is jquery. either use no named function like this or name of known function
+            alert('test');
+        });*/
+    </script>
+</body>
+</html>

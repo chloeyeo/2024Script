@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .viewList{
+            width:300px;
+        }
+        .viewList li{
+            display:flex;
+            justify-content:space-between;
+        }
+    </style>
+</head>
+<body>
+    <!-- <form action="go.html" method="get">
+        <input type="text" placeholder="type here" name="todo" value="hi" >
+    </form> -->
+    <input type="text" placeholder="type here" value="" class="todo">
+    <button class="btn">오늘의 할일</button>
+    <ul class="viewList"></ul>
+
+    <script>
+        // document.getElementsByClassName('todo') is the same as $(".todo") in jquery where .todo is css class selector
+        // document.getElementsByClassName('todo')[0].value is the same as what user types into the input form
+        const todoElem = document.getElementsByClassName('todo')[0];
+        const btnElem = document.getElementsByClassName('btn')[0];
+        // const delBtnElem = document.getElementsByClassName('del-btn')[0];
+        const viewList = [];
+        const viewListElem = document.getElementsByClassName('viewList')[0];
+
+        function listElements() {
+            let textList = '';
+            for(let i=0; i<viewList.length;i++){
+                textList += `<li><div>${viewList[i]}</div> <div class="del-btn">삭제</div></li>`;
+            }
+            viewListElem.innerHTML = textList;
+        }
+
+        function addElement() {
+            viewList.push(todoElem.value);
+            todoElem.value="";
+            listElements();
+        }
+        // function deleteElement(){
+        //     viewList.pop();
+        //     listElements();
+        // }
+        btnElem.addEventListener("click", addElement);
+        // delBtnElem.addEventListener("click", deleteElement);
+    </script>
+</body>
+</html>
