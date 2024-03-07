@@ -18,9 +18,6 @@
             border-radius:20px;
             border: 1px solid gray;
         }
-        /* .search,.viewList,.del-all{
-            flex:1;    
-        } */
         
         .todo,.btn{
             margin:10px;
@@ -32,10 +29,11 @@
             display:flex;
             justify-content:space-between;
         }
-        .text{
+        .listed-item{
             width: 200px;
-            /* text-wrap: wrap; */
-            word-wrap: break-word;
+            /* word-wrap: break-word;
+            word-wrap is exactly the same as overflow-wrap! overflow-wrap is just a more standard name*/
+            overflow-wrap:break-word;
         }
     </style>
 </head>
@@ -63,7 +61,7 @@
             let textList = '';
             if (viewList.length > 0) {
                 for(let i=0; i<viewList.length;i++){
-                    textList += `<li><div class='text'>${viewList[i]}</div> <div class="del-btn" onclick="deleteElement()">삭제</div></li>`;
+                    textList += `<li><div class='listed-item'>${viewList[i]}</div> <div class="del-btn" onclick="deleteElement()">삭제</div></li>`;
                 }
             } else{
                 textList = `<li><div>오늘은 쉬는 날!!</div></li>`;
