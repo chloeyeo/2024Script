@@ -15,5 +15,17 @@
         <img src="./images/google-icon.png" alt="google icon">
         구글 계정으로 가입
     </div>
+    <script>
+        const twitterBtn = document.getElementsByClassName("btn")[0];
+        const googleBtn = document.getElementsByClassName("btn")[1];
+
+        twitterBtn.addEventListener("click", function(){
+            alert("you clicked the twitter button!");
+        });
+        googleBtn.addEventListener("click", function(){
+            alert("you clicked the google button!");
+        });
+
+    </script>
 </body>
 </html>
