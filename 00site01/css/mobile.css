@@ -1,0 +1,26 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+
+.btn{
+    width:371px;
+    height:50px;
+    background-color: skyblue;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px; /*gap between icon and text*/
+    margin: 10px;
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background: black;
+    opacity:0.5;
+}
