@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+<body>
+    <h1 class="object">hi</h1>
+    <script>
+        class Vehicle {
+            #name; /* add # to front to make fields private */
+            #speed;
+            #color;
+
+            constructor(name,speed,color) {
+                this.#name=name;
+                this.#speed=speed;
+                this.#color=color;
+            }
+
+            /* DON'T use arrow functions for getters and setters, as they will not work with the get and set keywords */
+
+            get getName() {
+                return this.#name;
+            }
+
+            set setName(name) {
+                this.#name = name;
+            }
+
+            makeSound() {
+                return "makes vehicle sound";
+            }
+
+            // getName = () => { /* this is JS arrow function = () => { as opposed to regular function (){ */
+            //     return this.#name;
+            // }
+        }
+
+        class Car extends Vehicle {
+            constructor(name,speed,color) {
+                super(name,speed,color);
+            }
+
+            makeSound() {
+                return "makes car sound";
+            }
+        }
+
+        
+
+        const v1 = new Vehicle("first vehicle", "80km/h", "red");
+        const c1 = new Car("first car", "60km/h", "green");
+        const objDisplay = document.getElementsByClassName("object")[0];
+        // objDisplay.innerHTML = obj1.name;
+        objDisplay.innerHTML = v1.getName; // for field getter, must NOT CALL the function i.e. do NOT do getName(), only write function name here for innerHTML! i.e. getName
+        objDisplay.innerHTML = v1.makeSound(); //??? but for method we need to CALL the function, i.e. makeSound() not makeSound.
+        objDisplay.innerHTML = c1.makeSound();
+    </script>
+    
+</body>
+</html>
