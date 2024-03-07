@@ -26,7 +26,7 @@ body{
 }
 
 .header-logo{
-    padding: 0px 16px 0px 95.1406px;
+    padding: 0px 16px 0px 60px;
 }
 
 .logo-img{
@@ -76,4 +76,9 @@ i{
     align-items: center;
     color:white;
     margin:20px;
+}
+
+.icons{
+    display:flex;
+    padding: 0px 20px 0px 0px;
 }
