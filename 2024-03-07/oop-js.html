@@ -12,11 +12,13 @@
             #name; /* add # to front to make fields private */
             #speed;
             #color;
+            static #accident;
 
             constructor(name,speed,color) {
                 this.#name=name;
                 this.#speed=speed;
                 this.#color=color;
+                Vehicle.#accident = 0;
             }
 
             /* DON'T use arrow functions for getters and setters, as they will not work with the get and set keywords */
@@ -29,8 +31,17 @@
                 this.#name = name;
             }
 
+            get getAccident() {
+                return Vehicle.#accident;
+            }
+
             makeSound() {
                 return "makes vehicle sound";
+            }
+
+            accidentOccurred() {
+                Vehicle.#accident++;
+                return `number of accidents this vehicle had is now ${Vehicle.#accident}`
             }
 
             // getName = () => { /* this is JS arrow function = () => { as opposed to regular function (){ */
@@ -57,6 +68,9 @@
         objDisplay.innerHTML = v1.getName; // for field getter, must NOT CALL the function i.e. do NOT do getName(), only write function name here for innerHTML! i.e. getName
         objDisplay.innerHTML = v1.makeSound(); //??? but for method we need to CALL the function, i.e. makeSound() not makeSound.
         objDisplay.innerHTML = c1.makeSound();
+        objDisplay.innerHTML = v1.getAccident;
+        v1.accidentOccurred();
+        objDisplay.innerHTML = v1.accidentOccurred();
     </script>
     
 </body>
