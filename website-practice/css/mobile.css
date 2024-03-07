@@ -18,6 +18,17 @@
     border-radius:6px;
     cursor:pointer;
     transition:0.3s;
+    /* width:100%; */
+    flex:1;
+}
+
+body{
+    display:flex;
+    /* flex:1; */
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    background-color: blue;
 }
 
 .btn:hover{
