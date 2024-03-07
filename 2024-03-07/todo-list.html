@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        ul,li{list-style: none;}
         .todo-list{
             display:flex;
             flex-direction: column;
@@ -29,6 +31,11 @@
             display:flex;
             justify-content:space-between;
         }
+        .text{
+            width: 200px;
+            /* text-wrap: wrap; */
+            word-wrap: break-word;
+        }
     </style>
 </head>
 <body>
@@ -48,14 +55,14 @@
         const btnElem = document.getElementsByClassName('btn')[0];
         const delAllBtnElem = document.getElementsByClassName('del-all')[0];
         
-        const viewList = [];
+        let viewList = [];
         const viewListElem = document.getElementsByClassName('viewList')[0];
 
         function listElements() {
             let textList = '';
             if (viewList.length > 0) {
                 for(let i=0; i<viewList.length;i++){
-                    textList += `<li><div>${viewList[i]}</div> <div class="del-btn" onclick="deleteElement()">삭제</div></li>`;
+                    textList += `<li><div class='text'>${viewList[i]}</div> <div class="del-btn" onclick="deleteElement()">삭제</div></li>`;
                 }
             } else{
                 textList = `<li><div>오늘은 쉬는 날!!</div></li>`;
@@ -64,7 +71,9 @@
         }
 
         function deleteAll() {
+            // viewList=[];
             viewListElem.innerHTML = "";
+            viewList=[];
         }
 
         function addElement() {
