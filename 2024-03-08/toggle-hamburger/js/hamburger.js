@@ -13,14 +13,21 @@ const toggleBtn = document.getElementsByClassName('toggle-button')[0];
 
 let opened = toggleBtn.classList.contains('active') ? true : false;
 
-function toggle() {
-    if (!opened) {
-        toggleBtn.classList.add('active');
-        opened = true;
-    } else {
-        toggleBtn.classList.remove('active');
-        opened = false;
-    }
-}
+// function toggle() {
+//     if (!opened) {
+//         toggleBtn.classList.add('active');
+//         opened = true;
+//     } else {
+//         toggleBtn.classList.remove('active');
+//         opened = false;
+//     }
+// }
 
-toggleBtn.addEventListener("click", toggle);
+// toggleBtn.addEventListener("click", toggle);
+
+toggleBtn.addEventListener("click", function(){
+    toggleBtn.classList.toggle("active"); /* this code is the same as above!!
+    toggle("active") adds "active" to toggleBtn.classList if it doesn't already exist in the list,
+    and removes "active" from the classList if it does already exist in the list.
+    and "click" even means on click do this toggle("active") */
+});
