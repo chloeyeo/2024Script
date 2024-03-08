@@ -38,6 +38,7 @@ ul,li{
     background-color: black;
     border-radius:1px;
     position:absolute;
+    transition:0.3s;
 }
 
 .toggle-button .bar:nth-child(2) {
