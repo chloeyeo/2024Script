@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swiper Slide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css"
+      integrity="sha512-rd0qOHVMOcez6pLWPVFIv7EfSdGKLt+eafXh4RO/12Fgr41hDQxfGvoi1Vy55QIVcQEujUE1LQrATCLl2Fs+ag=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <header class="hd d-flex justify-content-between px-5">
+      <!--header does not use bootstrap! gnb=global navigation bar-->
+      <h1><a href="#">logo</a></h1>
+      <nav class="gnbWrap">
+        <ul>
+          <li><a href="#">기업정보</a></li>
+          <li><a href="#">인재채용</a></li>
+          <li><a href="#">뉴스룸</a></li>
+          <li><a href="#">제품정보</a></li>
+          <li><a href="#">고객지원</a></li>
+        </ul>
+      </nav>
+      <div class="utilWrap">
+        <ul>
+          <li>
+            <a href="#"
+              ><i class="fa-solid fa-headphones"></i
+            ></a>
+          </li>
+          <li>|</li>
+          <li><a href="#">SNS</a></li>
+          <li>|</li>
+          <li><a href="#">KOR</a></li>
+          <li>|</li>
+          <li>
+            <a href="#"
+              ><i class="fa-solid fa-magnifying-glass"></i></i
+            ></a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <!--mySwiper name can be changed but rest of class names cannot be changed-->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide bgImage bgImg01">
+          <!--px stands for padding in x/horizontal direction-->
+          <div class="txtWrap px-5">
+            <div class="txt text-white text-center text-md-start">
+              <!--text-white class is from bootstrap-->
+              <h3>Lorem ipsum dolor sit amet.</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quisquam, quasi.
+              </p>
+              <a href="#" class="btn btn-primary">더보기</a>
+              <!--btn is also a class from bootstrap-->
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide bgImage bgImg01">Slide 2</div>
+        <div class="swiper-slide bgImage bgImg01">Slide 3</div>
+        <div class="swiper-slide bgImage bgImg01">Slide 4</div>
+        <div class="swiper-slide bgImage bgImg01">Slide 5</div>
+        <div class="swiper-slide bgImage bgImg01">Slide 6</div>
+        <div class="swiper-slide bgImage bgImg01">Slide 7</div>
+        <div class="swiper-slide bgImage bgImg01">Slide 8</div>
+        <div class="swiper-slide bgImage bgImg01">Slide 9</div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"
+      integrity="sha512-xgIrH5DRuEOcZK5cPtVXx/WSp5DTir2JNcKE5ahV2u51NCTD9UDxbQgZHYHVBlPc4H8tug6BZTYIl2RdA/X0Vg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"
+      integrity="sha512-Ysw1DcK1P+uYLqprEAzNQJP+J4hTx4t/3X2nbVwszao8wD+9afLjBQYjz7Uk4ADP+Er++mJoScI42ueGtQOzEA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="index.js"></script>
+  </body>
+</html>

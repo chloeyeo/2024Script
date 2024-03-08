@@ -30,6 +30,7 @@ ul,li{
     height:20px;
     /* background-color: skyblue; */
     position:relative;
+    cursor:pointer;
 }
 
 .toggle-button .bar{
