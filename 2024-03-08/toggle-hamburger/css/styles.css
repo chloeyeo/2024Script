@@ -1,0 +1,69 @@
+@charset "utf-8";
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    height:100%
+}
+
+body{
+    display: flex; /*this also needs height:100% in the parent element to work!*/
+    justify-content:center;
+    align-items: center;
+}
+
+a:link,a:visited{
+    text-decoration:none;
+    color:#333;
+}
+
+ul,li{
+    list-style:none;
+}
+
+.toggle-button{
+    width:20px;
+    height:20px;
+    /* background-color: skyblue; */
+    position:relative;
+}
+
+.toggle-button .bar{
+    width:20px;
+    height: 2px;
+    background-color: black;
+    border-radius:1px;
+    position:absolute;
+}
+
+.toggle-button .bar:nth-child(2) {
+    top:50%;
+    margin-top:-1px; /* parent's height = 2px so 2/2 = 1 px*/
+}
+
+.toggle-button .bar:nth-child(3) {
+    bottom:0;
+}
+
+.toggle-button.active .bar:nth-child(1){
+    transform: translate(0,9px) rotate(45deg);
+}
+.toggle-button.active .bar:nth-child(2){
+    opacity:0;
+}
+.toggle-button.active .bar:nth-child(3){
+    transform: translate(0,-9px) rotate(-45deg);
+}
+
+
+.red{
+    background-color: red !important;
+}
+
+.mb10{
+    margin-bottom:10px !important;
+}
