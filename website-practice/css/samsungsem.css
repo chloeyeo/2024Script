@@ -83,6 +83,37 @@ body {
   color: white;
 }
 
+.cardWrap {
+  width: 100%;
+  /* height: 100%; */
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  /* box shadow: x y blur color (use rgba to change opacity a) */
+}
+
+.cardWrap img {
+  display: block;
+  width: 100%;
+  /* height: 100%; */
+}
+
+.banner.cardWrap img {
+  transition: 0.3s;
+}
+
+.banner.cardWrap:hover img {
+  transform: scale(1.1); /* scale 1 means 100% */
+}
+
+.cardWrap .txtWrap {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(1, 41, 93, 0.56);
+  padding: 20px 0;
+}
+
 .swiper {
   width: 100%;
   height: 100%;
@@ -123,4 +154,59 @@ body {
   display: flex;
   /* justify-content: center; */
   align-items: center;
+}
+
+/* common */
+.colorGray {
+  background-color: #eee !important;
+}
+
+.boxShadow {
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.colorGray .bgImg01 {
+  background-image: url(../images/product-banner01.jpg);
+}
+
+.colorGray .bgImg02 {
+  background-image: url(../images/product-banner02.jpg);
+}
+
+.colorGray .bgImg03 {
+  background-image: url(../images/product-banner03.jpg);
+}
+
+.colorGray > .container {
+  /* position: relative; */
+  color: white;
+  padding: 500px;
+  background-color: red;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.colorGray .bgImg01,
+.colorGray .bgImg02,
+.colorGray .bgImg03 {
+  padding: 20px 0px;
+  /* position: absolute; */
+}
+
+.colorGray h2 {
+  /* position: absolute; */
+  top: 100px;
+}
+
+.colorGray .bgImg01 {
+  top: 200px;
+}
+
+.colorGray .bgImg02 {
+  top: 300px;
+}
+
+.colorGray .bgImg03 {
+  top: 400px;
 }
