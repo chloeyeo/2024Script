@@ -1,33 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SK주식회사</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="./css/sk.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./css/sk.css" />
+  </head>
+  <body>
     <div class="header">
-        <div class="header-logo">
-            <img class="logo-img" src="./images/sk-logo.svg" alt="sk-logo">
+      <div class="header-logo">
+        <img class="logo-img" src="./images/sk-logo.svg" alt="sk-logo" />
+      </div>
+      <div class="lhs-menu">
+        <div class="lhs-menu-btn">Innovation</div>
+        <div class="lhs-menu-btn">Industries</div>
+        <div class="lhs-menu-btn">Services</div>
+        <div class="lhs-menu-btn">Experiences</div>
+        <div class="lhs-menu-btn">Insights</div>
+      </div>
+      <div class="rhs-menu">
+        <div class="rhs-menu-btn">문의하기</div>
+        <div class="rhs-menu-btn">회사정보</div>
+        <div class="icons">
+          <i class="fa fa-search search-icon"></i>
+          <i class="fa-solid fa-globe globe-icon"></i>
+          <i class="fa-solid fa-bars bar-icon"></i>
         </div>
-        <div class="lhs-menu">
-            <div class="lhs-menu-btn">Innovation</div>
-            <div class="lhs-menu-btn">Industries</div>
-            <div class="lhs-menu-btn">Services</div>
-            <div class="lhs-menu-btn">Experiences</div>
-            <div class="lhs-menu-btn">Insights</div>
-        </div>
-        <div class="rhs-menu">
-            <div class="rhs-menu-btn">문의하기</div>
-            <div class="rhs-menu-btn">회사정보</div>
-            <div class="icons">
-                <i class="fa fa-search search-icon"></i>
-                <i class="fa-solid fa-globe globe-icon"></i>
-                <i class="fa-solid fa-bars bar-icon"></i>
-            </div>
-        </div>
+      </div>
     </div>
-</body>
+
+    <div class="container">
+      <div class="slide slide-1">
+        <div class="caption">
+          <div class="title">A Tailored Generative AI for Your Business</div>
+          <div class="subtitle">
+            기업을 위한 최적화된 생성형 AI 솔루션으로 AI 업무혁신의 미래를
+            선도합니다.
+          </div>
+          <div class="link">자세히 알아보기</div>
+        </div>
+      </div>
+
+      <div class="slide slide-2">
+        <div class="caption">
+          <div class="title">Innovative Digital Services with Cloud DNA</div>
+          <div class="subtitle">클라우드 세상으로 비즈니스를 연결합니다.</div>
+          <div class="link">자세히 알아보기</div>
+        </div>
+      </div>
+
+      <div class="slide slide-3">
+        <div class="caption">
+          <div class="title">Innovative Smart Manufacturing Solutions</div>
+          <div class="subtitle">
+            전 공정을 실시간으로 모니터링하고 리스크를 사전에 감지합니다.
+          </div>
+          <div class="link">자세히 알아보기</div>
+        </div>
+      </div>
+
+      <div class="slide slide-4">
+        <div class="caption">
+          <div class="title">Net Zero for Enterprise</div>
+          <div class="subtitle">
+            디지털 기술을 융합한 ESG 전략으로 최적의 디지털 ESG 서비스를
+            제공합니다.
+          </div>
+          <div class="link">자세히 알아보기</div>
+        </div>
+      </div>
+
+      <div class="slide slide-5">
+        <div class="caption">
+          <div class="title">Digital One, For the Next</div>
+          <div class="subtitle">
+            끊임없는 혁신으로 고객의 성장에 함께하는 IT 서비스 파트너, SK(주)
+            C&C
+          </div>
+          <div class="link">자세히 알아보기</div>
+        </div>
+      </div>
+
+      <div class="indicator-container">
+        <div class="indicator" index="0" onclick="changeSlide(this)">
+          Generative AI
+        </div>
+        <div class="indicator" index="1" onclick="changeSlide(this)">Cloud</div>
+        <div class="indicator" index="2" onclick="changeSlide(this)">
+          Manufacturing
+        </div>
+        <div class="indicator" index="3" onclick="changeSlide(this)">
+          Digital ESG
+        </div>
+        <div class="indicator" index="4" onclick="changeSlide(this)">
+          SK(주) C&C
+        </div>
+      </div>
+    </div>
+    <script src="./js/sk.js"></script>
+  </body>
 </html>
