@@ -1,8 +1,9 @@
 const slides = document.querySelectorAll(".slide");
 let currIndex = -1;
+let timeout = null;
 
 function autoSlideNext() {
-  setTimeout(autoSlideNext, 3000);
+  timeout = setTimeout(autoSlideNext, 3000);
   for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
@@ -17,6 +18,13 @@ function autoSlideNext() {
 autoSlideNext();
 
 function changeSlide(currIndicator) {
+  clearTimeout(timeout);
   var indicatorInd = currIndicator.getAttribute("index");
-  currIndex = indicatorInd - 1;
+  slides[currIndex].style.display = "none";
+  slides[indicatorInd].style.display = "block";
+  currIndex = indicatorInd;
+  setTimeout(
+    autoSlideNext,
+    3000
+  ); /*how is this giving 3000ms to indicatorInd instead of indicatorInd++ ?*/
 }
