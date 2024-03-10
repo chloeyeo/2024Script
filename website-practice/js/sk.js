@@ -25,5 +25,5 @@ function changeSlide(currIndicator) {
   currIndex = indicatorInd;
 
   /* this calls the autoSlideNext function AFTER a delay of 3000 milliseconds */
-  setTimeout(autoSlideNext, 3000);
+  timeout = setTimeout(autoSlideNext, 3000);
 }
