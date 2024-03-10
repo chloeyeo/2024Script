@@ -23,8 +23,7 @@ function changeSlide(currIndicator) {
   slides[currIndex].style.display = "none";
   slides[indicatorInd].style.display = "block";
   currIndex = indicatorInd;
-  setTimeout(
-    autoSlideNext,
-    3000
-  ); /*how is this giving 3000ms to indicatorInd instead of indicatorInd++ ?*/
+
+  /* this calls the autoSlideNext function AFTER a delay of 3000 milliseconds */
+  setTimeout(autoSlideNext, 3000);
 }

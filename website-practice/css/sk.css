@@ -4,6 +4,33 @@
   box-sizing: border-box;
 }
 
+@media all and (max-width: 767px) {
+  .title {
+    font-size: 32px;
+  }
+  .subtitle {
+    font-size: 14px;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  .title {
+    font-size: 36px;
+  }
+  .subtitle {
+    font-size: 20px;
+  }
+}
+
+@media all and (min-width: 1025px) {
+  .title {
+    font-size: 64px;
+  }
+  .subtitle {
+    font-size: 20px;
+  }
+}
+
 @font-face {
   font-family: "Pretendard-Regular";
   src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
@@ -144,13 +171,11 @@ i {
 }
 
 .title {
-  font-size: 64px;
   font-weight: bold;
   margin: 0px 0px 10px 0px;
 }
 
 .subtitle {
-  font-size: 20px;
   margin: 0px 0px 100px 0px;
 }
 
