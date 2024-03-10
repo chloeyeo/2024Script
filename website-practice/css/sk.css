@@ -11,6 +11,9 @@
   .subtitle {
     font-size: 14px;
   }
+  .indicator-container .indicator {
+    font-size: 16px;
+  }
 }
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
@@ -20,6 +23,9 @@
   .subtitle {
     font-size: 20px;
   }
+  .indicator-container .indicator {
+    font-size: 12px;
+  }
 }
 
 @media all and (min-width: 1025px) {
@@ -28,6 +34,9 @@
   }
   .subtitle {
     font-size: 20px;
+  }
+  .indicator-container .indicator {
+    font-size: 12px;
   }
 }
 
@@ -187,11 +196,11 @@ i {
 .indicator-container {
   color: white;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   position: absolute;
-  width: 80%;
-  bottom: 90px;
+  width: 40%;
+  bottom: 20%;
   z-index: 2;
 
   /* center it */
@@ -200,11 +209,9 @@ i {
 }
 
 .indicator-container .indicator {
-  width: 76.45px;
+  width: 100px;
   height: 14px;
   text-align: center;
-  margin: 0px 0px 0px 10px;
-  font-size: 10px;
   font-weight: bold;
   display: inline-block;
   cursor: pointer;
