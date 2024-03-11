@@ -9,6 +9,10 @@ let timeout = null;
 
 function autoSlideNext() {
   timeout = setTimeout(autoSlideNext, 3000);
+  autoSlide();
+}
+
+function autoSlide() {
   for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
     progressBars[i].style.display = "none";
@@ -50,7 +54,9 @@ function changePause(playBtn) {
     clearTimeout(timeout);
   } else {
     //play
+    console.log(currIndex);
     iconClassList.replace("fa-pause", "fa-play");
+    autoSlide();
     currIndex = currIndex == 0 ? slides.length - 1 : currIndex - 1;
     autoSlideNext();
   }
