@@ -35,12 +35,17 @@ var cars = [
 
 let text = "<tr><td>Name</td><td>Speed</td><td>Color</td></tr>";
 for (let i = 0; i < cars.length; i++) {
+  // for (var car in cars) {
   text += "<tr>";
   text += `<td>${cars[i].name}</td>`;
   text += `<td>${cars[i].speed}</td>`;
   text += `<td>${cars[i].color}</td>`;
   text += "</tr>";
 }
+
+localStorage.setItem("myCat", "Tom");
+const cat = localStorage.getItem("myCat");
+console.log(cat);
 
 document.querySelector(".table").innerHTML = text;
 
