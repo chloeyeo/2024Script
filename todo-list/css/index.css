@@ -43,3 +43,7 @@ li {
         word-wrap is exactly the same as overflow-wrap! overflow-wrap is just a more standard name*/
   overflow-wrap: break-word;
 }
+
+li.active {
+  background-color: rgb(224, 212, 101);
+}

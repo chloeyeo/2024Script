@@ -28,10 +28,13 @@ const delAllBtnElem = document.getElementsByClassName("del-all")[0];
 let viewList = [];
 const viewListElem = document.getElementsByClassName("viewList")[0];
 
+const listItems = document.getElementsByTagName("li");
+
 function listDataObjects() {
   let text = "";
   for (let i = 0; i < listData.length; i++) {
-    text += `<li><div class='listed-item'>${listData[i].title}</div><div class="del-btn" onclick="deleteSpecificElement(${i})">`;
+    /* <li class="active"> */
+    text += `<li onClick="highlightItem(${i})"><div class='listed-item'>${listData[i].title}</div><div class="del-btn" onclick="deleteSpecificElement(${i})">`;
     if (listData[i].checked) {
       text += `<i class="fa-regular fa-square-check"></i>`;
     } else {
@@ -40,6 +43,14 @@ function listDataObjects() {
     text += ` <i class="fa-solid fa-trash"></i></div></li>`;
   }
   viewListElem.innerHTML = text;
+}
+
+function highlightItem(index) {
+  if (listItems[index].classList.contains("active")) {
+    listItems[index].classList.remove("active");
+  } else {
+    listItems[index].classList.add("active");
+  }
 }
 
 function listElements() {
