@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가운데 정렬</title>
+    <style>
+      body {
+        min-height: 100vh;
+        width: 100%;
+      }
+      h3 {
+        width: 500px;
+        height: 100px;
+        background-color: skyblue;
+        /* position: absolute; */
+        /* margin: 0 auto; */
+        /* margin-top: 10px; don't use this */
+        /* position: absolute;
+        left: 50%;
+        transform: translateX(
+          -50% */
+        /*); /*move ONLY h3 to center, not its parent i.e. box; just move child*/
+        /*margin-left: calc(-500px / 2); /*same as transform translateX -50%*/
+      }
+
+      /* if set child element to position absolute,
+      it completely removes element from the flow so
+      MUST give parent element height & width, otherwise
+      child element will not be displayed at all
+      
+      border-radius 50% to create a complete circle */
+      .box {
+        background: pink;
+        padding: 30px 0; /* use padding instead of using margin-top */
+        /*to move whole parent of h3 i.e. box, use dflex jusfity center*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 80px;
+      }
+
+      .box:hover h3 {
+        width: 800px;
+        /* opacity: 0.5; */
+      }
+
+      .box2 {
+        background-color: red;
+        padding: 100px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .circle {
+        width: 100px;
+        height: 100px;
+        margin: -20px;
+        border-radius: 50%;
+        position: absolute; /* 동그라미들을 다 합쳐서 같은 위치에 있게 만든다*/
+      }
+
+      .box2:hover .cir1,
+      .box2:hover .cir3 {
+        transform: translateX(0px);
+      }
+
+      .cir2 {
+        background-color: yellow;
+        z-index: 1;
+      }
+
+      .cir1 {
+        background-color: green;
+        transform: translateX(-50%);
+      }
+
+      .cir3 {
+        background-color: skyblue;
+        transform: translateX(50%);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+    display: block; : display, can set width and height
+    display: inline; : cannot set width or height
+    display: inline-block; : can set width and height
+    display: flex; : can set width and height
+
+    margin: 0 auto; : centers element
+
+    display:none; : no display
+    -->
+    <div class="box">
+      <h3>text</h3>
+    </div>
+
+    <div class="box2">
+      <div class="circle cir1"></div>
+      <div class="circle cir2"></div>
+      <div class="circle cir3"></div>
+    </div>
+  </body>
+</html>
