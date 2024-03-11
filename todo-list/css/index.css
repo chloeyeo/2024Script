@@ -38,7 +38,8 @@ li {
   border-bottom: 1px solid gray;
 }
 .listed-item {
-  width: 200px;
+  width: 320px;
+  /* background-color: red; */
   /* word-wrap: break-word;
         word-wrap is exactly the same as overflow-wrap! overflow-wrap is just a more standard name*/
   overflow-wrap: break-word;

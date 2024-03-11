@@ -29,20 +29,30 @@ let viewList = [];
 const viewListElem = document.getElementsByClassName("viewList")[0];
 
 const listItems = document.getElementsByTagName("li");
+const checkItems = document.getElementsByTagName("a");
 
 function listDataObjects() {
   let text = "";
   for (let i = 0; i < listData.length; i++) {
     /* <li class="active"> */
-    text += `<li onClick="highlightItem(${i})"><div class='listed-item'>${listData[i].title}</div><div class="del-btn" onclick="deleteSpecificElement(${i})">`;
+    text += `<li><div class='listed-item' onClick="highlightItem(${i})">${listData[i].title}</div>`;
     if (listData[i].checked) {
-      text += `<i class="fa-regular fa-square-check"></i>`;
+      text += `<a onClick="checkItem(${i})"><i class="fa-regular fa-square-check"></i></a>`;
     } else {
-      text += `<i class="fa-regular fa-square"></i>`;
+      text += `<a onClick="checkItem(${i})"><i class="fa-regular fa-square"></i></a>`;
     }
-    text += ` <i class="fa-solid fa-trash"></i></div></li>`;
+    text += ` <div class="del-btn" onclick="deleteSpecificElement(${i})"><i class="fa-solid fa-trash"></i></div></li>`;
   }
   viewListElem.innerHTML = text;
+}
+
+function checkItem(index) {
+  let classList = checkItems[index].children[0].classList;
+  if (classList.contains("fa-square-check")) {
+    classList.replace("fa-square-check", "fa-square");
+  } else {
+    classList.replace("fa-square", "fa-square-check");
+  }
 }
 
 function highlightItem(index) {
