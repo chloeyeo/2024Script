@@ -199,9 +199,10 @@ i {
   justify-content: space-between;
   align-items: center;
   position: absolute;
-  width: 40%;
-  bottom: 10%;
+  min-width: 50%;
+  bottom: 5%;
   z-index: 2;
+  gap: 10px; /*left-right*/
   /* background-color: red; */
 
   /* center it */

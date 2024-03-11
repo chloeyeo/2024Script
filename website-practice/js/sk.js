@@ -42,8 +42,13 @@ function changeSlide(currIndicator) {
 function changePause(playBtn) {
   let iconClassList = playBtn.children[0].classList;
   if (iconClassList.contains("fa-play")) {
+    //pause
     iconClassList.replace("fa-play", "fa-pause");
+    clearTimeout(timeout);
   } else {
+    //play
     iconClassList.replace("fa-pause", "fa-play");
+    currIndex = currIndex == 0 ? slides.length - 1 : currIndex - 1;
+    autoSlideNext();
   }
 }
