@@ -227,6 +227,11 @@ i {
   justify-content: flex-start;
   font-size: 16px;
   margin: 0px 10px 0px 0px;
+  color: gray;
+}
+
+.indicator span.active {
+  color: white;
 }
 
 .indicator .bar {
