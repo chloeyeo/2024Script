@@ -44,6 +44,9 @@ function changePause(playBtn) {
   if (iconClassList.contains("fa-play")) {
     //pause
     iconClassList.replace("fa-play", "fa-pause");
+    document.getAnimations().forEach((animation) => {
+      animation.pause();
+    });
     clearTimeout(timeout);
   } else {
     //play
