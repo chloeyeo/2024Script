@@ -3,6 +3,7 @@
 <html lang="en">
   <head>
     <title>Title</title>
+    <link rel="stylesheet" href="./css/index.css" />
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -60,23 +61,105 @@
       </nav>
     </header>
 
-    <div class="visual" style="background: skyblue">
+    <div class="visual mb-5" style="background: skyblue">
       <div class="container">
         <!--row must be wrapping col-->
         <div class="row">
           <div
             class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center align-items-md-start order-2 order-md-1"
           >
+            <!--align-items-start removes the stretch-->
             <h2>Lorem ipsum dolor sit amet.</h2>
             <p class="text-center text-md-start">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Error,
               doloremque.
             </p>
-            <a href="#" class="btn btn-primary">More</a>
+            <a
+              href="#"
+              class="btn btn-primary align-self-stretch align-self-md-start mb-3"
+              >More</a
+            >
           </div>
           <div class="col-12 col-md-6 p-5 order-1 order-md-2">
             <!--p-5 is max size of padding-->
             <img src="./images/slider.svg" alt="img-fluid" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container py-3 const-1 mb-5">
+      <h2 class="text-center">Gallery</h2>
+      <p class="text-center">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
+        laboriosam.
+      </p>
+      <div class="row">
+        <div class="col-md-3 cardWrap">
+          <div class="card p-4 py-5">
+            <!--img-fluid class는 bootstrap에서 element가 차지하는 공간이 부모만큼 커진다-->
+            <img src="./images/destaque1.svg" alt="" class="img-fluid" />
+            <!--bs5-card-default then tab-->
+            <!--pt means padding top. pt-3 means padding top 3rem
+            pt-5 means padding top 5rem-->
+            <div class="card-body mt-3">
+              <h4 class="card-title">Lorem, ipsum.</h4>
+              <p class="card-text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam,
+                consectetur.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 cardWrap">
+          <div class="card p-4 py-5">
+            <!--img-fluid class는 bootstrap에서 element가 차지하는 공간이 부모만큼 커진다-->
+            <img src="./images/destaque2.svg" alt="" class="img-fluid" />
+            <!--bs5-card-default then tab-->
+            <!--pt means padding top. pt-3 means padding top 3rem
+              pt-5 means padding top 5rem-->
+            <div class="card-body mt-3">
+              <h4 class="card-title">Lorem, ipsum.</h4>
+              <p class="card-text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam,
+                consectetur.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 cardWrap">
+          <div class="card p-4 py-5">
+            <!--img-fluid class는 bootstrap에서 element가 차지하는 공간이 부모만큼 커진다-->
+            <img src="./images/destaque3.svg" alt="" class="img-fluid" />
+            <!--bs5-card-default then tab-->
+            <!--pt means padding top. pt-3 means padding top 3rem
+              pt-5 means padding top 5rem-->
+            <div class="card-body mt-3">
+              <h4 class="card-title">Lorem, ipsum.</h4>
+              <p class="card-text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam,
+                consectetur.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 cardWrap">
+          <div class="card p-4 py-5">
+            <!--img-fluid class는 bootstrap에서 element가 차지하는 공간이 부모만큼 커진다-->
+            <img src="./images/destaque4.svg" alt="" class="img-fluid" />
+            <!--bs5-card-default then tab-->
+            <!--pt means padding top. pt-3 means padding top 3rem
+              pt-5 means padding top 5rem-->
+            <div class="card-body mt-3">
+              <h4 class="card-title">Lorem, ipsum.</h4>
+              <p class="card-text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam,
+                consectetur.
+              </p>
+            </div>
           </div>
         </div>
       </div>

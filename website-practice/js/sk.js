@@ -1,4 +1,5 @@
 const slides = document.querySelectorAll(".slide");
+const progressBars = document.querySelectorAll(".indicator .bar");
 let currIndex = -1;
 let timeout = null;
 
@@ -6,6 +7,8 @@ function autoSlideNext() {
   timeout = setTimeout(autoSlideNext, 3000);
   for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
+    progressBars[i].style.display = "none";
+    progressBars[i].classList.remove("active");
   }
   if (currIndex == slides.length - 1) {
     currIndex = 0;
@@ -13,6 +16,8 @@ function autoSlideNext() {
     currIndex++;
   }
   slides[currIndex].style.display = "block";
+  progressBars[currIndex].style.display = "block";
+  progressBars[currIndex].classList.add("active");
 }
 
 autoSlideNext();

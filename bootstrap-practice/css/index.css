@@ -1,0 +1,12 @@
+.card {
+  transition: 0.3;
+}
+
+.cardWrap:hover .card {
+  transform: translate(-10px, -10px);
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2); /* x y blur color with opacity*/
+}
+
+.cardWrap .card img {
+  height: 150px;
+}

@@ -36,7 +36,7 @@
     font-size: 20px;
   }
   .indicator-container .indicator {
-    font-size: 12px;
+    font-size: 16px;
   }
 }
 
@@ -210,22 +210,16 @@ i {
 }
 
 .indicator-container .indicator {
-  width: 100px;
-  height: 14px;
+  /* width: 100px; */
+  height: 100px;
   /* background-color: red; */
-  text-align: end;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-weight: bold;
-  display: inline-block;
   cursor: pointer;
   position: relative;
-}
-
-.indicator .text {
-  position: absolute;
-  /* display: flex;
-  justify-self: flex-end; */
-  top: 3px;
-  left: 25px;
+  overflow-x: hidden;
 }
 
 .indicator span {
@@ -240,6 +234,20 @@ i {
   height: 2px;
   background-color: white;
   position: absolute;
-  top: 30px;
+  top: 80px;
   display: none;
+}
+
+@keyframes slide-progress {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.indicator .bar.active {
+  animation: slide-progress 3s forwards;
 }
