@@ -28,5 +28,16 @@ var cars = [
   },
 ];
 
+let text = "<tr><td>Name</td><td>Speed</td><td>Color</td></tr>";
+for (let i = 0; i < cars.length; i++) {
+  text += "<tr>";
+  text += `<td>${cars[i].name}</td>`;
+  text += `<td>${cars[i].speed}</td>`;
+  text += `<td>${cars[i].color}</td>`;
+  text += "</tr>";
+}
+
+document.querySelector(".table").innerHTML = text;
+
 /*log + tab*/
-console.log(cars[1].start());
+// console.log(cars[1].start());
