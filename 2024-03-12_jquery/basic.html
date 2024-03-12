@@ -40,9 +40,15 @@
     $(".btn").on("click", function(){
         //$(".box").addClass("active"); // can also write $("div.box") it's the same
         //console.log($(".box").attr("class")); //box active. i.e. what's inside the attribute 'class' of box element? class="box active" so attribute named "class" has "box active".
+        console.log($(".box").attr("class")); //getter
+        $(".box").attr("class", "box active"); //setter. changes CONTENT OF attribute named "class" to "box active".
+        $(".box").attr("han", "content of han"); // if attr named "han" does not exist it creates one and sets its content to "content of han"
         console.log($(".box").attr("class"));
-        $(".box").attr("class", "box active"); //changes CONTENT OF attribute named "class" to "box active".
-        console.log($(".box").attr("class"));
+        console.log($(".box").attr("han"));
+
+        //$(".box").css("display", "none"); //changes css of box
+
+        //there also is $(this)
     }); 
     $(".btn_out").on("click", ()=>{ // both syntaxes accepted: function(){} and ()=>{}
         $(".box").removeClass("active");
