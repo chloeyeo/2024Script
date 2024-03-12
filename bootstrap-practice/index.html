@@ -3,6 +3,13 @@
 <html lang="en">
   <head>
     <title>Title</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"
+      integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="./css/index.css" />
     <!-- Required meta tags -->
     <meta charset="utf-8" />
@@ -178,16 +185,40 @@
       </div>
       <div class="row">
         <div class="web col-md-3 mb-3">
-          <img src="./images/servicos/1.jpg" alt="" class="img-fluid rounded" />
+          <a href="./images/servicos/1.jpg" class="viewPopup">
+            <img
+              src="./images/servicos/1.jpg"
+              alt=""
+              class="img-fluid rounded"
+            />
+          </a>
         </div>
         <div class="java col-md-3 mb-3">
-          <img src="./images/servicos/2.jpg" alt="" class="img-fluid rounded" />
+          <a href="./images/servicos/2.jpg" class="viewPopup">
+            <img
+              src="./images/servicos/2.jpg"
+              alt=""
+              class="img-fluid rounded"
+            />
+          </a>
         </div>
         <div class="node col-md-3 mb-3">
-          <img src="./images/servicos/3.jpg" alt="" class="img-fluid rounded" />
+          <a href="./images/servicos/3.jpg" class="viewPopup">
+            <img
+              src="./images/servicos/3.jpg"
+              alt=""
+              class="img-fluid rounded"
+            />
+          </a>
         </div>
         <div class="market col-md-3 mb-3">
-          <img src="./images/servicos/4.jpg" alt="" class="img-fluid rounded" />
+          <a href="./images/servicos/4.jpg" class="viewPopup">
+            <img
+              src="./images/servicos/4.jpg"
+              alt=""
+              class="img-fluid rounded"
+            />
+          </a>
         </div>
       </div>
     </div>
@@ -198,6 +229,12 @@
     </footer>
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"
+      integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -224,6 +261,37 @@
           filter: selector,
         });
       });
+
+      window.addEventListener("load", function () {
+        $(".cont-2nd .btn-group div").eq(0).trigger("click"); // click 0th div element as soon as window screen loads
+        //.eq(0) means 0th div
+      });
+
+      $(".row .viewPopup").magnificPopup({
+        type: "image",
+        gallery: {
+          enabled: true,
+        },
+        // other options
+      });
+
+      /* JS:
+      let arr = [1,2,3];
+      let arrCopy = arr;
+      typeof(arr) is Not the same as typeof(arrCopy).
+      let arrDeepCopy = [...arr];
+      [...arr] this is called 'deep copy'
+
+      then if we change
+      arr[0] = 10;
+      then arr will be [10,2,3]
+      arrCopy will be [10,2,3]
+      arrDeepCopy will be [1,2,3].
+
+      let n = 3;
+      let a = n;
+      n = 5;
+      n is 5, a is 3. */
     </script>
   </body>
 </html>
