@@ -35,13 +35,18 @@ autoSlideNext();
 function changeSlide(currIndicator) {
   clearTimeout(timeout);
   var indicatorInd = currIndicator.getAttribute("index");
+  // const playBtnClass =
+  //   document.getElementsByClassName(".play-btn").children[0].classList;
   slides[currIndex].style.display = "none";
   slides[indicatorInd].style.display = "block";
   currIndex = indicatorInd;
   currIndex--;
+
+  // if (playBtnClass.contains("fa-play")) {
   autoSlide();
   currIndex = currIndex == 0 ? slides.length - 1 : currIndex - 1;
   autoSlideNext();
+  // }
   /* this calls the autoSlideNext function AFTER a delay of 3000 milliseconds */
   // timeout = setTimeout(autoSlideNext, 3000);
 }

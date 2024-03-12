@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+      }
+      .box.active{
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn">추가</button>
+    <button class="btn_out">제거</button>
+    <div class="box"></div>
+    </div>
+    <!--must first download jquery before using jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      // JQUERY is best for DOM, event query & animation
+    //   document.getElementsByClassName("box")[0].innerHTML = "홍길동";
+    // document.getElementsByClassName("btn")[0].addEventListener("click", function (){
+
+    // });
+    //jquery:
+    $(".btn").on("click", function(){
+        $(".box").addClass("active"); // can also write $("div.box") it's the same
+    }); 
+    $(".btn_out").on("click", function(){
+        $(".box").removeClass("active");
+    }); 
+    </script>
+  </body>
+</html>
