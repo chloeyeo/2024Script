@@ -171,10 +171,10 @@
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, ab!
       </p>
       <div class="btn-group">
-        <div class="btn btn-primary active" data-filter="">ALL</div>
+        <div class="btn btn-primary" data-filter="">ALL</div>
         <div class="btn btn-primary" data-filter="web">WEBSITE</div>
         <div class="btn btn-primary" data-filter="java">JAVA</div>
-        <div class="btn btn-primary" data-filter="node">NODE</div>
+        <div class="btn btn-primary active" data-filter="node">NODE</div>
       </div>
     </div>
 
@@ -198,8 +198,11 @@
     ></script>
 
     <script>
+      // this is basically a tab menu
       $(".cont-2nd .btn-group div").click(function () {
-        alert("test" + $(this).index()); //this is referring to div, and index is referring to index of the divs in that level.
+        //alert("test" + $(this).index()); //this is referring to div, and index is referring to index of the divs in that level.
+        $(".cont-2nd .btn-group div").removeClass("active"); //remove active from classlist of all div elements at once
+        $(this).addClass("active"); //change self div element to have active in classlist.
       });
     </script>
   </body>
