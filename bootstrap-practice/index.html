@@ -165,11 +165,26 @@
       </div>
     </div>
 
+    <div class="container cont-2nd">
+      <h2>PORTFOLIO</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, ab!
+      </p>
+      <div class="btn-group">
+        <div class="btn btn-primary active" data-filter="">ALL</div>
+        <div class="btn btn-primary" data-filter="web">WEBSITE</div>
+        <div class="btn btn-primary" data-filter="java">JAVA</div>
+        <div class="btn btn-primary" data-filter="node">NODE</div>
+      </div>
+    </div>
+
     <main></main>
     <footer>
       <!-- place footer here -->
     </footer>
     <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -181,5 +196,11 @@
       integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
       crossorigin="anonymous"
     ></script>
+
+    <script>
+      $(".cont-2nd .btn-group div").click(function () {
+        alert("test" + $(this).index()); //this is referring to div, and index is referring to index of the divs in that level.
+      });
+    </script>
   </body>
 </html>
