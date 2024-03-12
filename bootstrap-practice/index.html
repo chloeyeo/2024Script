@@ -170,11 +170,25 @@
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, ab!
       </p>
-      <div class="btn-group">
+      <div class="btn-group mb-3">
         <div class="btn btn-primary" data-filter="">ALL</div>
-        <div class="btn btn-primary" data-filter="web">WEBSITE</div>
-        <div class="btn btn-primary" data-filter="java">JAVA</div>
-        <div class="btn btn-primary active" data-filter="node">NODE</div>
+        <div class="btn btn-primary" data-filter=".web">WEBSITE</div>
+        <div class="btn btn-primary" data-filter=".java">JAVA</div>
+        <div class="btn btn-primary active" data-filter=".node">NODE</div>
+      </div>
+      <div class="row">
+        <div class="web col-md-3 mb-3">
+          <img src="./images/servicos/1.jpg" alt="" class="img-fluid rounded" />
+        </div>
+        <div class="java col-md-3 mb-3">
+          <img src="./images/servicos/2.jpg" alt="" class="img-fluid rounded" />
+        </div>
+        <div class="node col-md-3 mb-3">
+          <img src="./images/servicos/3.jpg" alt="" class="img-fluid rounded" />
+        </div>
+        <div class="market col-md-3 mb-3">
+          <img src="./images/servicos/4.jpg" alt="" class="img-fluid rounded" />
+        </div>
       </div>
     </div>
 
@@ -183,8 +197,8 @@
       <!-- place footer here -->
     </footer>
     <!-- Bootstrap JavaScript Libraries -->
-    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -203,6 +217,12 @@
         //alert("test" + $(this).index()); //this is referring to div, and index is referring to index of the divs in that level.
         $(".cont-2nd .btn-group div").removeClass("active"); //remove active from classlist of all div elements at once
         $(this).addClass("active"); //change self div element to have active in classlist.
+
+        let selector = $(this).attr("data-filter");
+
+        $(".cont-2nd .row").isotope({
+          filter: selector,
+        });
       });
     </script>
   </body>
