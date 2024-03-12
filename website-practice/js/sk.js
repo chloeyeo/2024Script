@@ -38,9 +38,12 @@ function changeSlide(currIndicator) {
   slides[currIndex].style.display = "none";
   slides[indicatorInd].style.display = "block";
   currIndex = indicatorInd;
-
+  currIndex--;
+  autoSlide();
+  currIndex = currIndex == 0 ? slides.length - 1 : currIndex - 1;
+  autoSlideNext();
   /* this calls the autoSlideNext function AFTER a delay of 3000 milliseconds */
-  timeout = setTimeout(autoSlideNext, 3000);
+  // timeout = setTimeout(autoSlideNext, 3000);
 }
 
 function changePause(playBtn) {
@@ -56,6 +59,8 @@ function changePause(playBtn) {
     //play
     console.log(currIndex);
     iconClassList.replace("fa-pause", "fa-play");
+    // currIndex = currIndex == 0 ? slides.length - 1 : currIndex - 1;
+    // currIndex--;
     autoSlide();
     currIndex = currIndex == 0 ? slides.length - 1 : currIndex - 1;
     autoSlideNext();
