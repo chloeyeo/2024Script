@@ -9,13 +9,15 @@
         width: 100px;
         height: 100px;
         background-color: skyblue;
+        position:relative;
         left:0;
+        top:10px;
         transition:0.3s;
       }
       .box.active{
         background-color: pink;
-        position:relative;
-        left:-50px; /*.box must have left set for this to work?*/
+        /* position:relative; */
+        left:-50px; /*.box must have position AND left set for this to work?*/
       }
     </style>
   </head>
@@ -41,6 +43,10 @@
     $(".btn_out").on("click", ()=>{ // both syntaxes accepted: function(){} and ()=>{}
         $(".box").removeClass("active");
     }); 
+
+    let fn = () => 1000; // ecma6script. SAME AS let function (){return 1000;}
+    let num = a => 10; // can exclude () when just single param
+    let nums = (a,b) => 15; // for two params or more must enclose in ()
     </script>
   </body>
 </html>
