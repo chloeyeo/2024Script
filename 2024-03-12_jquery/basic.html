@@ -9,9 +9,13 @@
         width: 100px;
         height: 100px;
         background-color: skyblue;
+        left:0;
+        transition:0.3s;
       }
       .box.active{
         background-color: pink;
+        position:relative;
+        left:-50px; /*.box must have left set for this to work?*/
       }
     </style>
   </head>
@@ -28,11 +32,13 @@
     // document.getElementsByClassName("btn")[0].addEventListener("click", function (){
 
     // });
+     
+    // JQUERY IS NOT USED IN REACT, SO WHEN USING REACT MUST USE THE ABOVE JS DOM USING document.getElements
     //jquery:
     $(".btn").on("click", function(){
         $(".box").addClass("active"); // can also write $("div.box") it's the same
     }); 
-    $(".btn_out").on("click", function(){
+    $(".btn_out").on("click", ()=>{ // both syntaxes accepted: function(){} and ()=>{}
         $(".box").removeClass("active");
     }); 
     </script>
