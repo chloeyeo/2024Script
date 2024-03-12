@@ -38,7 +38,11 @@
     // JQUERY IS NOT USED IN REACT, SO WHEN USING REACT MUST USE THE ABOVE JS DOM USING document.getElements
     //jquery:
     $(".btn").on("click", function(){
-        $(".box").addClass("active"); // can also write $("div.box") it's the same
+        //$(".box").addClass("active"); // can also write $("div.box") it's the same
+        //console.log($(".box").attr("class")); //box active. i.e. what's inside the attribute 'class' of box element? class="box active" so attribute named "class" has "box active".
+        console.log($(".box").attr("class"));
+        $(".box").attr("class", "box active"); //changes CONTENT OF attribute named "class" to "box active".
+        console.log($(".box").attr("class"));
     }); 
     $(".btn_out").on("click", ()=>{ // both syntaxes accepted: function(){} and ()=>{}
         $(".box").removeClass("active");
