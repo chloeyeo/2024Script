@@ -10,6 +10,20 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+      integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+      integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="./css/index.css" />
     <!-- Required meta tags -->
     <meta charset="utf-8" />
@@ -95,7 +109,8 @@
       </div>
     </div>
 
-    <div class="container py-3 const-1 mb-5">
+    <!--content-->
+    <div class="container py-3 cont-1st mb-5">
       <h2 class="text-center">Gallery</h2>
       <p class="text-center">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
@@ -172,6 +187,7 @@
       </div>
     </div>
 
+    <!--portfolio-->
     <div class="container cont-2nd">
       <h2>PORTFOLIO</h2>
       <p>
@@ -223,12 +239,79 @@
       </div>
     </div>
 
+    <!--customer-->
+    <div class="bg-gray cont-3rd">
+      <div class="container">
+        <h2>CUSTOMER</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis,
+          animi?
+        </p>
+        <div class="owl-carousel" id="slide1">
+          <!--item1 start-->
+          <div class="item">
+            <img src="./images/user.svg" alt="" />
+            <div class="txtBody">
+              <h3>Lorem, ipsum dolor.</h3>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab,
+                cum.
+              </p>
+            </div>
+          </div>
+          <!--item1 end-->
+          <!--item1 start-->
+          <div class="item">
+            <img src="./images/user.svg" alt="" />
+            <div class="txtBody">
+              <h3>Lorem, ipsum dolor.</h3>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab,
+                cum.
+              </p>
+            </div>
+          </div>
+          <!--item1 end-->
+          <!--item1 start-->
+          <div class="item">
+            <img src="./images/user.svg" alt="" />
+            <div class="txtBody">
+              <h3>Lorem, ipsum dolor.</h3>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab,
+                cum.
+              </p>
+            </div>
+          </div>
+          <!--item1 end-->
+          <!--item1 start-->
+          <div class="item">
+            <img src="./images/user.svg" alt="" />
+            <div class="txtBody">
+              <h3>Lorem, ipsum dolor.</h3>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab,
+                cum.
+              </p>
+            </div>
+          </div>
+          <!--item1 end-->
+        </div>
+      </div>
+    </div>
+
     <main></main>
     <footer>
       <!-- place footer here -->
     </footer>
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+      integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"
       integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w=="
@@ -273,6 +356,11 @@
           enabled: true,
         },
         // other options
+      });
+
+      $("#slide1").owlCarousel({
+        loop: true,
+        autoplay: true,
       });
 
       /* JS:
