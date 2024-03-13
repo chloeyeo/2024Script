@@ -50,7 +50,7 @@ eatCerealCallback(
 
 /* promise that will replace the above callback functions */
 
-function eatCerealPromise() {
+function eatCerealPromise(hungry) {
   return new Promise((resolve, reject) => {
     if (hungry) {
       resolve({
@@ -74,7 +74,7 @@ function eatCerealPromise() {
 //   });
 
 // alternatively:
-eatCerealPromise().then(
+eatCerealPromise(false).then(
   // first function inside then() is the resolve function
   (successObject) => {
     console.log(
