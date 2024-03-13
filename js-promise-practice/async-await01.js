@@ -27,6 +27,7 @@ function eatBreakfast(action, food) {
 
 /* using async and await keywords to simplify the above process: */
 async function takeShowerBeforeBreakfast(showerTime, breakfastFood) {
+  //can add try {} catch (error) { console.log(error);} here if have reject function in Promise so catch() will be the reject
   const firstResponse = await takeShower(showerTime);
   const secondResponse = await eatBreakfast(firstResponse, breakfastFood);
   console.log(secondResponse);
