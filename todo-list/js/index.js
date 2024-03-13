@@ -109,5 +109,10 @@ function deleteSpecificElement(index) {
 
 listDataObjects();
 
+// addElement and deleteAll are callback functions
+// i.e. they are only called 'on click'
 btnElem.addEventListener("click", addElement);
 delAllBtnElem.addEventListener("click", deleteAll);
+
+// crud - create, read, update, delete
+// = post, get, put, delete
