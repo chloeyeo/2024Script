@@ -47,7 +47,24 @@ function listDataObjects() {
   viewListElem.innerHTML = text;
 }
 
+// we use windows.localStorage to store token
+// when dealing with user authentication
+// (otherwise we have to use database which will take some time to load
+// whereas localStorage is fast), so localStorage is useful
+
 function checkItem(index) {
+  /* listData[index].checked = true;
+  or more like:
+  listData[index].checked = !listData[index].checked 
+  // so when checked = true it becomes false and vice versa 
+  
+  // then need to re-update the database
+  let valueData = JSON.stringify(listData);
+  localStorage.setItem("todoData", valueData);
+  
+  // and re-update the view/ui based on updated database
+  listDataObjects();
+  */
   let classList = checkItems[index].children[0].classList;
   if (classList.contains("fa-square-check")) {
     classList.replace("fa-square-check", "fa-square");
@@ -65,6 +82,21 @@ function highlightItem(index) {
 }
 
 function listElements() {
+  /* get data from localStorage and put it in viewList.
+  if (localStorage.length > 0){
+    let localData = localStorage.getItem("todoData");
+    console.log(localData);
+    // localData is JSON data but our data isn't
+    // so we have to convert JSON data back to local data format
+    // using JSON.parse (= opposite of JSON.stringify)
+    // before we parse the data, our code won't recognise
+    // the JSON and will just treat it as a string of text just text
+    // only after JSON.parse it will convert JSON back to local data
+    // and our code will recognise it as what it is, an object
+    console.log(JSON.parse(localData));
+    viewList = JSON.parse(localData);
+  }
+  */
   let textList = "";
   if (viewList.length > 0) {
     for (let i = 0; i < viewList.length; i++) {
@@ -82,13 +114,37 @@ function deleteAll() {
   viewList = [];
 }
 
+// checkbox => check/uncheck is equivalent to modifying data
+
 function addElement() {
   if (todoElem.value != "") {
-    // let value = { title: todoElem.value, check: false };
-    // viewList.push(value);
+    /* let value = { title: todoElem.value, check: false };
+    viewList.push(value);
+    we also have to put value into windows.localstorage as
+    JSON data using stringify
+    stringify will convert value = {} into JSON
+    so that we store the JSON in windows.localstorage
+    
+    convert to JSON data. JSON data has fields as strings too.
+    let valueData = JSON.stringify(viewList);
+    console.log(valueData);
+
+    localStorage.setItem("todoData", valueData); // update localStorage
+
+    when reload page, the listed items in UI will disappear
+    but what we stored in localStorage will still remain
+
+    so then we get data from windows.localStorage
+    and put this data into viewList.
+    */
+
     viewList.push(todoElem.value);
     todoElem.value = "";
   }
+  /*else {
+    alert("오늘의 할일을 입력하세요");
+    todoElem.focus(); // = input bar 깜빡깜빡 effect
+  } */
   listElements();
   // listDataObjects();
 }
@@ -103,10 +159,16 @@ function deleteElement() {
 }
 
 function deleteSpecificElement(index) {
-  listData.splice(index, 1); // remove 1 element in viewList at index
+  listData.splice(index, 1); // splice removes 1 element in viewList at index
+  /* let valueData = JSON.stringify(listData);
+  localStorage.setItem("todoData", valueData); // update database
+  
+  listDataObjects(); // update view (from updated database)
+  
+  */
   console.log(listData);
   if (listData.length > 0) {
-    listDataObjects();
+    listDataObjects(); // update view after deletion
   } else {
     viewListElem.innerHTML = "";
   }
