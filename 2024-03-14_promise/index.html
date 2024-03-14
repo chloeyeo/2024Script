@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function test(good) {
+        return new Promise(function (resolve, reject) {
+          if (good) {
+            resolve("resolved!");
+          } else {
+            reject("failed!");
+          }
+        });
+      }
+
+      let good = false;
+
+      test(good)
+        .then(function (text) {
+          console.log(text);
+        })
+        .catch(function (text) {
+          console.log(text);
+        });
+
+      let testTwo = new Promise(function (res, rej) {
+        // res(200);
+        rej(400);
+      });
+
+      //then() returns a new promise object
+      /*If you call the then() method twice on the same promise object (instead of chaining),
+      then this promise object will have two pairs of settlement handlers.
+      All handlers attached to the same promise object are always CALLED in the order they were added. (BUT)
+      Moreover, the two promises returned by each call of then() start separate chains and DO NOT WAIT FOR each other's settlement(=finish?).*/
+      testTwo.then(
+        function (num) {
+          console.log(`success with ${num}`);
+        },
+        function (num) {
+          console.log(`fail with ${num}`);
+        }
+      );
+      // .catch(function (num) {
+      //   console.log(`fail with ${num}`);
+      // });
+    </script>
+  </body>
+</html>
