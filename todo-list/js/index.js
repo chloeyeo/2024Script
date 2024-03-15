@@ -103,4 +103,11 @@ function deleteSpecificElement(index) {
 // addElement and deleteAll are callback functions
 // i.e. they are only called 'on click'
 btnElem.addEventListener("click", addElement);
+btnElem.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    // i.e. if key pressed is the enter key
+    addElement();
+  }
+}); // 1. why is this not working...?
+// 2. also in github pages the css is not showing up at all - why is this?
 delAllBtnElem.addEventListener("click", deleteAll);

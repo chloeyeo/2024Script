@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var test = 1;
+      test = 100;
+      var test = 10; // possible for a var
+
+      let num = 10; // block-scoped
+      num = 100; // this is different from doing let num = 10 again. value itself can change
+      //let num = 100; // this gives an error for a let. cannot declare a variable with the same name with let, must use a different variable name
+
+      {
+        let a = 1;
+      }
+      //console.log(a); // gives error as a is block scoped!
+
+      {
+        let num = 2; // this is DIFFERENT from the num outside block! this is a new variable that only works within block
+      }
+      console.log(num); // prints 100, NOT 2
+
+      {
+        var b = 3;
+      }
+      console.log(b); // this does NOT give an error because b is function-scoped, not block-scoped, so will be within the whole parent body scope.
+
+      const result = 100; // value cannot change. also cannot declare new variable with same name.
+      //const result = 10; // gives an error (cannot declare new variable with same name)
+      //result = 1000; // this also gives an error (value cannot change)
+    </script>
+  </body>
+</html>
