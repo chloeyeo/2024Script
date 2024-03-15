@@ -5,5 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <script>
+      // let myCalc = new Promise(function (resolve, reject) {
+      //   // 3 states of a promise:
+      //   // if body is empty, myCalc on console will print <pending>
+      //   // <pending> is a state WHILE the promise is running, i.e. before promise is finished (before promise is either resolved or rejected).
+      //   // if resolve(); is in body, myCalc myCalc on console will print <fulfilled>
+      //   // if reject(); is in body, myCalc myCalc on console will print <rejected>
+      //   // these are the 3 states of a promise.
+      // });
+
+      // myCalc.then().catch(); // when using promise
+
+      // // but when using async await it only does resolve() and excludes reject() so we have to put them in try catch instead.
+
+      // // async keyword before a function name means the function WILL Return a Promise.
+      // // await keyword can only be used when async keyword is present.
+      // // await keyword means it will WAIT for a Promise to resolve (since in async/await there is only resolve; reject won't be dealt with.)
+      // async function fn() {
+      //   //return 1000; // use 'return' to pass in the parameter to the resolve() function.
+      //   return Promise.reject(); // to manually make async/await to be rejected (by default async/await has no reject())
+      //   // can only use async, does not need to write await.
+      // }
+
+      // fn()
+      //   .then(function (param1000) {
+      //     // the above 1000 when returned will be passed in to this resolve function as a parameter
+      //   })
+      //   .catch(function () {
+      //     //if return Promise.reject() is manually called inside the above fn, then this reject function inside catch will be called
+      //   });
+
+      async function fn1() {
+        let myFn = new Promise(function (resolve, reject) {
+          // this reject can NOT be used since this function is async!
+          // async ONLY deals with/does resolve();
+          resolve(100);
+          //reject(100); // how can we deal with this parameter? where does this parameter go to? : we CAN'T deal with this
+          // we can't even use reject/no point of reject() since async function only does resolve()
+        });
+        try {
+          let result = await myFn; // await is the SAME AS .then() (IMPORTANT)
+          .//myFn() won't work!!! myFn is correct don't call function when using await!
+          console.log(result);
+        } catch (error) {
+          console.log("fail");
+        }
+        // try {
+        //   let result = await myFn(); // await is the SAME AS .then() (IMPORTANT)
+        //   console.log(result);
+        // } catch () {
+        //   // this catch is the same as catch() in myFn.then().catch()
+        //   // since async function fn1 only deals returns resolve(), if anything goes wrong it will just stop.
+        //   // to deal with the error situation, we try catch the await (= .then()) so if resolve() goes wrong
+        //   // then we will catch the error
+        //   // this is NOT THE SAME AS reject function!! bc there is NO DEALING WITH REJECT IN ASYNC functions
+        //   // this catch block ONLY Catches any error if the resolve() function goes wrong!
+        //   // e.g. something happens inside the code of resolve() that were poorly written, then this is catched as an error.
+        //   console.log("error: ");
+        // }
+      }
+
+      fn1();
+
+      /* the above line using await is the SAME as: */
+      // myFn.then(function(){
+      //   console.log("success");
+      // });
+    </script>
+  </body>
 </html>
