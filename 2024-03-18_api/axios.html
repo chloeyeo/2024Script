@@ -4,45 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kakao API data</title>
+    <link rel="stylesheet" href="./css/axios.css" />
   </head>
   <body>
-    <div class="container"></div>
+    <div class="display">
+        <div class="search">
+          <input type="text" placeholder="type here" value="" class="searchInput" />
+          <button class="btn">Search</button>
+        </div>
+        <div class="container"></div>
+    <div>
+    <!-- <div class="container"></div> -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"
       integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script>
-      /*axios = Promise based HTTP client for the browser and node.js */
-      // axios.get(URL, params) is a promise
-      // https://dapi.kakao.com/v2/search/web?query=%ED%85%8C%EC%8A%AC%EB%9D%BC&sort=recency
-      // header = used for authorization
-      // body = the data/content/result in json
-      const getApiData = async function () {
-        try {
-          const response = await axios.get(
-            "https://dapi.kakao.com/v2/search/web",
-            {
-              params: { query: "blackpink", sort: "recency", size: 50 },
-              headers: {
-                Authorization: "KakaoAK 78506c1bd0985343833cdcf21b8d7517",
-              },
-            }
-          );
-
-          var dataList = response.data.documents;
-          dataList.forEach((document) =>
-            console.log(
-              `title: ${document.title} contents: ${document.contents}`
-            )
-          );
-        } catch (error) {
-          console.error(error.message);
-        }
-      };
-
-      getApiData();
-    </script>
+    <script src="./js/axios.js"></script>
   </body>
 </html>
