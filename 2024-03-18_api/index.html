@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API</title>
+  </head>
+  <body>
+    <script>
+      // XHR (XML HttpRequest)
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        // status codes:
+        // 200 when data arrived to the front end successfully
+        // 400 when front end went wrong
+        // 500 when backend server went wrong
+        if (this.readyState == 4 && this.status == 200) {
+          // Typical action to be performed when the document is ready:
+          //   document.getElementById("demo").innerHTML = xhttp.responseText;
+          console.log(JSON.parse(xhttp.responseText));
+        }
+      };
+      xhttp.open(
+        "GET",
+        "https://dapi.kakao.com/v2/search/web?query=테슬라&sort=recency",
+        true
+      );
+      xhttp.setRequestHeader(
+        "Authorization",
+        "KakaoAK 78506c1bd0985343833cdcf21b8d7517"
+      );
+      xhttp.send();
+    </script>
+  </body>
+</html>
