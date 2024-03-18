@@ -5,6 +5,7 @@ const container = document.getElementsByClassName("container")[0];
 const showSearchResult = async function () {
   try {
     if (inputElem.value != "") {
+      document.getElementsByClassName("container")[0].innerHTML = "";
       const response = await axios.get("https://dapi.kakao.com/v2/search/web", {
         params: { query: inputElem.value, sort: "accuracy", size: 50 },
         headers: {
