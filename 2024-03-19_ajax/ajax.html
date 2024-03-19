@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX Kakao API</title>
+  </head>
+  <body>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      // you can use jquery.ajax instead of axios. for this you first need to get jquery library from cdn js
+      let queryString = "blackpink";
+      $.ajax({
+        url: `https://dapi.kakao.com/v2/search/web`,
+        type: "GET",
+        dataType: "json",
+        data: {
+          query: queryString,
+          sort: "recency",
+          size: 30,
+        },
+        beforeSend: onBefore,
+        success: onSuccess,
+        error: onError,
+      });
+
+      function onBefore(xhr) {
+        xhr.setRequestHeader(
+          "Authorization",
+          "KakaoAK 78506c1bd0985343833cdcf21b8d7517"
+        );
+      }
+
+      function onSuccess(v) {
+        console.log(v);
+      }
+      function onError(xhr, status, error) {
+        console.log(xhr, status, error);
+      }
+    </script>
+  </body>
+</html>
