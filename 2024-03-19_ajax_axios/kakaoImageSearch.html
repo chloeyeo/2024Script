@@ -33,6 +33,10 @@
     <div class="container">
       <ul class="lists d-flex flex-wrap"></ul>
     </div>
+    <div class="container d-flex justify-content-between mt-3 mb-5">
+      <button class="btn prev btn-primary">Previous</button>
+      <button class="btn next btn-primary">Next</button>
+    </div>
   </body>
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
@@ -50,24 +54,28 @@
     // global init (variables to use in global scope)
     const auth = "KakaoAK 78506c1bd0985343833cdcf21b8d7517";
     const url = "https://dapi.kakao.com/v2/search/image";
+    const imagesPerPage = 30;
+    const numberOfPages = 10;
+    var pageNumber = 1;
 
     //$ is jquery
     // submit() is an event (i.e. enter on form)
     // must use <button> in form not <div> for submit() to work
     // event parameter must be used for mouse events
-    async function onSubmit(event) {
+    async function showSearchResult() {
       try {
-        // stop page changing bc the default event to change page on search and we prevented that default event
-        event.preventDefault();
-        //   let query = $(".input").val();
-        // 'this' is search-form
-        // find <input> inside search-form
-        // input[attribute]
-        // trim() trims the space before and after input value
-        let inputQuery = $(this).find("input[name=query]").val().trim();
+        let inputQuery = $(".search-form")
+          .find("input[name=query]")
+          .val()
+          .trim();
         if (inputQuery) {
           const response = await axios.get(url, {
-            params: { query: inputQuery, size: 50, sort: "recency" },
+            params: {
+              query: inputQuery,
+              size: imagesPerPage,
+              sort: "recency",
+              page: pageNumber,
+            },
             headers: {
               Authorization: auth,
             },
@@ -89,6 +97,28 @@
       }
       $(".lists").html(text); // same as document.innerHTML
     }
+
+    function showPrev() {
+      if (pageNumber > 1) {
+        pageNumber--;
+        showSearchResult();
+      }
+    }
+
+    function showNext() {
+      if (pageNumber < numberOfPages) {
+        pageNumber++;
+        showSearchResult();
+      }
+    }
+
+    function onSubmit(event) {
+      event.preventDefault();
+      showSearchResult();
+    }
+
     $(".search-form").submit(onSubmit);
+    $(".prev").click(showPrev);
+    $(".next").click(showNext);
   </script>
 </html>
