@@ -67,7 +67,7 @@
         let inputQuery = $(this).find("input[name=query]").val().trim();
         if (inputQuery) {
           const response = await axios.get(url, {
-            params: { query: inputQuery, size: 50 },
+            params: { query: inputQuery, size: 50, sort: "recency" },
             headers: {
               Authorization: auth,
             },
