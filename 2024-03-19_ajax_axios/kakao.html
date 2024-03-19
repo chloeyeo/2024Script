@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kakao Search</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+      integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <form class="search-form d-flex gap-3 py-3">
+        <input
+          type="text"
+          placeholder="Please type what you want to search"
+          name="query"
+          class="input form-control"
+        />
+        <button class="btn btn-primary">Search</button>
+      </form>
+    </div>
+    <div class="container">
+      <ul class="lists"></ul>
+    </div>
+  </body>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"
+    integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script>
+    // global init (variables to use in global scope)
+    const auth = "KakaoAK 78506c1bd0985343833cdcf21b8d7517";
+    const url = "https://dapi.kakao.com/v2/search/web";
+
+    //$ is jquery
+    // submit() is an event (i.e. enter on form)
+    // must use <button> in form not <div> for submit() to work
+    // event parameter must be used for mouse events
+    async function onSubmit(event) {
+      try {
+        // stop page changing bc the default event to change page on search and we prevented that default event
+        event.preventDefault();
+        //   let query = $(".input").val();
+        // 'this' is search-form
+        // find <input> inside search-form
+        // input[attribute]
+        // trim() trims the space before and after input value
+        let inputQuery = $(this).find("input[name=query]").val().trim();
+        if (inputQuery) {
+          const response = await axios.get(url, {
+            params: { query: inputQuery, size: 50 },
+            headers: {
+              Authorization: auth,
+            },
+          });
+          onSuccess(response);
+        } else {
+          $(".input").focus();
+        }
+      } catch (error) {
+        console.error(error.message);
+      }
+    }
+    function onSuccess(response) {
+      let data = response.data.documents;
+      let text = ``;
+      for (item of data) {
+        text += `<li>${item.title}</li>`;
+      }
+      $(".lists").html(text); // same as document.innerHTML
+    }
+    $(".search-form").submit(onSubmit);
+  </script>
+</html>

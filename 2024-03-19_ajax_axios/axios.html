@@ -10,6 +10,8 @@
     <script>
       // use axios to use kakao daum api. for this first get axios library from cdn js
       // axios.get() is a promise so we do then() to write resolve() inside and catch() for reject() inside catch.
+      // axios is also used in React
+      // axios.put post del are also available
       let queryString = "tesla";
       axios
         .get(`https://dapi.kakao.com/v2/search/web`, {
