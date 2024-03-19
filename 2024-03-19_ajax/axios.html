@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Axios Kakao API</title>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>
+    <script>
+      // use axios to use kakao daum api. for this first get axios library from cdn js
+      // axios.get() is a promise so we do then() to write resolve() inside and catch() for reject() inside catch.
+      let queryString = "tesla";
+      axios
+        .get(`https://dapi.kakao.com/v2/search/web`, {
+          params: { query: queryString, size: 50 },
+          headers: {
+            Authorization: "KakaoAK 78506c1bd0985343833cdcf21b8d7517",
+          },
+        })
+        .then(function (response) {
+          console.log(response.data.documents);
+        })
+        .catch(function (error) {
+          console.error(error.message);
+        });
+    </script>
+  </body>
+</html>
