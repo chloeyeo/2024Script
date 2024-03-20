@@ -33,7 +33,6 @@
           placeholder="Please type what you want to search"
           name="query"
           class="input form-control"
-          value="blackpink"
         />
         <button class="btn btn-primary">Search</button>
       </form>
@@ -63,7 +62,7 @@
     const auth = "KakaoAK 78506c1bd0985343833cdcf21b8d7517";
     const url = "https://dapi.kakao.com/v2/search/web";
     let itemsPerPage = 3;
-    let currentPage = 8;
+    let currentPage = 1;
     let inputQuery = $(".search-form").find("input[name=query]").val().trim();
 
     async function onSubmit(event) {
@@ -149,6 +148,6 @@
     $(".search-form").submit(onSubmit);
 
     // jquery.trigger is doing an action, e.g. actually making a button click action to happen without the user actually clicking
-    $(".btn").trigger("click");
+    // $(".btn").trigger("click");
   </script>
 </html>
