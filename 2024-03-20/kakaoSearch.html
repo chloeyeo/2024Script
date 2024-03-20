@@ -138,9 +138,9 @@
 
       let text = ``;
       for (item of data) {
-        text += `<li><h3><a href="${item.url}">${item.title}</a></h3><p>${
-          item.contents
-        }</p><p>${moment(item.datetime).format(
+        text += `<li><h3><a href="${item.url}" target="_blank">${
+          item.title
+        }</a></h3><p>${item.contents}</p><p>${moment(item.datetime).format(
           "YYYY-MM-DD HH:mm:ss"
         )}</p></li>`;
       }
