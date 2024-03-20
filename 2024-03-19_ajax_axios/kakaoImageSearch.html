@@ -34,8 +34,7 @@
       <ul class="lists d-flex flex-wrap"></ul>
     </div>
     <div class="container d-flex justify-content-between mt-3 mb-5">
-      <button class="btn prev btn-primary">Previous</button>
-      <button class="btn next btn-primary">Next</button>
+      <ul class="pagination d-flex flex-wrap"></ul>
     </div>
   </body>
   <script
@@ -54,9 +53,10 @@
     // global init (variables to use in global scope)
     const auth = "KakaoAK 78506c1bd0985343833cdcf21b8d7517";
     const url = "https://dapi.kakao.com/v2/search/image";
-    const imagesPerPage = 30;
-    const numberOfPages = 10;
+    // const imagesPerPage = 30;
     var pageNumber = 1;
+    // var numberOfPages = 50; //50 is max
+    // var imagesList = [];
 
     //$ is jquery
     // submit() is an event (i.e. enter on form)
@@ -72,7 +72,7 @@
           const response = await axios.get(url, {
             params: {
               query: inputQuery,
-              size: imagesPerPage,
+              //   size: imagesPerPage,
               sort: "recency",
               page: pageNumber,
             },
@@ -89,28 +89,65 @@
       }
     }
     function onSuccess(response) {
-      let data = response.data.documents;
-      console.log(data);
-      let text = ``;
+      let data = response.data.documents; // total no of images
+      const totalPages = response.data.meta.pageable_count;
+      const actualPages = Math.ceil(totalPages / data.length);
+      //   console.log("no.ofpages: " + Math.ceil(totalPages / data.length));
+      const pageIndicators = Math.min(50, actualPages);
+      console.log(pageIndicators);
+      //   console.log("totalPages: " + totalPages);
+      //   const indicators = Math.ceil(totalPages / data.length);
+      //   if (numberOfPages > 50) {
+      //     numberOfPages = 50;
+      //   }
+      let indTxt = `<li class="page-item mx-4"><a class="page-link" href="#">Previous</a></li>`;
+
+      //   console.log("response.data.documents.length: " + data.length);
+      console.log(response.data);
+      for (let i = 1; i <= pageIndicators; i++) {
+        indTxt += `<li class="page-item" onclick="showPage(this)" ind="${i}"><a class="page-link" href="#">${i}</a></li>`;
+      }
+      indTxt += `<li class="page-item mx-4"><a class="page-link" href="#">Next</a></li>`;
+      imgTxt = ``;
       for (item of data) {
-        text += `<li><img src="${item.thumbnail_url}"></img></li>`;
+        imgTxt += `<li><img src="${item.thumbnail_url}"></img></li>`;
       }
-      $(".lists").html(text); // same as document.innerHTML
+      //   console.log("imgTxt when first loaded: " + imgTxt);
+      $(".pagination").html(indTxt);
+      $(".lists").html(imgTxt);
     }
 
-    function showPrev() {
-      if (pageNumber > 1) {
-        pageNumber--;
-        showSearchResult();
-      }
+    function showPage(indicator) {
+      pageNumber = indicator.getAttribute("ind");
+      showSearchResult();
+      //   const ind = imagesPerPage * pageNumber - 1;
+      //   console.log(`imagesList.length: ${imagesList.length}`);
+      //   console.log(`imagesList[ind]: ${imagesList[ind]}`);
+      //   let imgTxt = ``;
+      //   for (let i = 0; i < imagesPerPage; i++) {
+      //     imgTxt += imagesList[ind + i];
+      //   }
+      //   console.log(`imgTxt after click of indicator ${pageNumber}: ${imgTxt}`);
+      //   $(".lists").html(imgTxt);
     }
 
-    function showNext() {
-      if (pageNumber < numberOfPages) {
-        pageNumber++;
-        showSearchResult();
-      }
-    }
+    // function showPrev() {
+    //   if (pageNumber > 1) {
+    //     pageNumber--;
+    //     showSearchResult();
+    //   } else {
+    //     alert("you're already on first page");
+    //   }
+    // }
+
+    // function showNext() {
+    //   if (pageNumber < numberOfPages) {
+    //     pageNumber++;
+    //     showSearchResult();
+    //   } else {
+    //     alert("end page reached");
+    //   }
+    // }
 
     function onSubmit(event) {
       event.preventDefault();
@@ -118,7 +155,5 @@
     }
 
     $(".search-form").submit(onSubmit);
-    $(".prev").click(showPrev);
-    $(".next").click(showNext);
   </script>
 </html>
