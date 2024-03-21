@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      ul,
+      li {
+        list-style: none;
+      }
+      .wrap {
+        width: 500px;
+      }
+      .tabmenu {
+        display: flex;
+        /* background-color: black; */
+      }
+      .tabmenu li {
+        padding: 10px 20px; /* y x */
+        background: #eee;
+        cursor: pointer;
+      }
+      .tabmenu li.active {
+        background-color: skyblue;
+      }
+      .content div {
+        display: none;
+        padding: 20px 10px;
+      }
+      .content div:nth-child(1) {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <ul class="tabmenu">
+        <li>tab1</li>
+        <li>tab2</li>
+        <li>tab3</li>
+      </ul>
+      <div class="content">
+        <div>
+          1. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti
+          quidem ipsum impedit animi voluptatum veniam similique repellat, sunt
+          ducimus fugiat laudantium vero debitis. Similique eum tempora, quis
+          veritatis omnis voluptate.
+        </div>
+        <div>
+          2. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti
+          quidem ipsum impedit animi voluptatum veniam similique repellat, sunt
+          ducimus fugiat laudantium vero debitis. Similique eum tempora, quis
+          veritatis omnis voluptate.
+        </div>
+        <div>
+          3. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti
+          quidem ipsum impedit animi voluptatum veniam similique repellat, sunt
+          ducimus fugiat laudantium vero debitis. Similique eum tempora, quis
+          veritatis omnis voluptate.
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(".tabmenu > li").click(function () {
+      // should not use arrow function ()=>{} to use $(this)
+      // since arrow functions don't create this to the functions created
+      console.log($(this));
+      //console.log($(this).index()); // $(this) is the li element that has just been clicked
+      $(".tabmenu > li").removeClass("active");
+      $(this).addClass("active");
+      $(".content>div").css({ display: "none" });
+      //The eq() method returns an element with a specific index number (starting from 0) of the selected elements.
+      $(".content>div").eq($(this).index()).css({ display: "block" });
+    });
+  </script>
+</html>

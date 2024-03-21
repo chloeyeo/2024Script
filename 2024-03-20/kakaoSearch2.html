@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice Search</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <style>
+    ul,
+    li {
+      list-style: none;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <form
+        class="container searchForm d-flex justify-content-center gap-3 py-4"
+      >
+        <input type="text" placeholder="Search" class="input px-2" />
+        <button class="btn btn-primary">Search</button>
+      </form>
+    </div>
+    <div class="container">
+      <ul class="searchResult">
+        <!-- <li>hi</li> -->
+      </ul>
+      <nav class="d-flex justify-content-center">
+        <ul class="pagination">
+          <!-- <li>1</li> -->
+        </ul>
+      </nav>
+    </div>
+  </body>
+  <!-- libraries i used: jquery, axios, moment, bootstrap, fontawesome -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+  <script>
+    require("dotenv").config(); // stores variables in .env file in process.env object
+    const onSearch = async function () {
+      // axios.get() returns a promise so we'll await.
+      // so we put async to the function and thus try catch.
+      try {
+        // axios.get(url).then().catch()
+        const url = "https://dapi.kakao.com/v2/search/web";
+        const auth = `Authorization: KakaoAK ${process.env.REST_API_KEY}`;
+        const response = await axios.get(url, {
+          headers: { auth },
+          params: {},
+        });
+      } catch (error) {
+        console.error(error.message);
+      }
+    };
+    $(".searchForm").submit(onSearch);
+  </script>
+</html>
