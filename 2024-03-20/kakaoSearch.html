@@ -135,7 +135,7 @@
 
     function onSuccess(response) {
       let data = response.data.documents;
-      //   console.log(data);
+      console.log(data);
 
       setPager(response.data.meta.pageable_count); // pageable count in kakao api is equal to total items/docs/records
 
