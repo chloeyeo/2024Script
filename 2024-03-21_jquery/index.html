@@ -15,7 +15,8 @@
         list-style: none;
       }
       .wrap {
-        width: 500px;
+        width: 400px;
+        /* background-color: blue; */
       }
       .tabmenu {
         display: flex;
@@ -36,12 +37,64 @@
       .content div:nth-child(1) {
         display: block;
       }
+      .imgView {
+        overflow: hidden;
+        width: 400px;
+        position: relative;
+      }
+      .imgWrap {
+        display: flex;
+        position: relative;
+        left: 0px; /*need position*/
+        transition: 0.3s;
+      }
+      .imgWrap .image {
+        width: 400px;
+      }
+      .box {
+        position: absolute;
+        background-color: pink;
+        width: 400px;
+        height: 100%;
+        top: 0;
+        left: -100%;
+        /* z-index only works on positioned elements (position: absolute, position: relative, position: fixed, or position: sticky)  */
+        z-index: 100;
+        transition: 0.3s;
+      }
+      .shadow {
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        opacity: 0.3;
+        z-index: 98;
+        top: 0;
+      }
+      .menu {
+        position: relative;
+        z-index: 99;
+      }
     </style>
   </head>
   <body>
+    <button class="menu">click</button>
+    <div class="box">
+      <button class="close">close</button>
+      <!-- ul>li*5>(menu$) then tab-->
+      <ul>
+        <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li>
+        <li>menu4</li>
+        <li>menu5</li>
+      </ul>
+    </div>
+    <div class="shadow"></div>
     <div class="wrap">
       <ul class="tabmenu">
-        <li>tab1</li>
+        <li class="active">tab1</li>
         <li>tab2</li>
         <li>tab3</li>
       </ul>
@@ -66,19 +119,39 @@
         </div>
       </div>
     </div>
+    <div class="imgView">
+      <div class="imgWrap">
+        <img src="./images/img1.jpg" alt="image 1" class="image" />
+        <img src="./images/img2.jpg" alt="image 2" class="image" />
+        <img src="./images/img3.jpg" alt="image 3" class="image" />
+      </div>
+    </div>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script>
     $(".tabmenu > li").click(function () {
-      // should not use arrow function ()=>{} to use $(this)
-      // since arrow functions don't create this to the functions created
-      console.log($(this));
-      //console.log($(this).index()); // $(this) is the li element that has just been clicked
+      const li_index = $(this).index();
+      console.log(li_index);
       $(".tabmenu > li").removeClass("active");
-      $(this).addClass("active");
+      $(this).addClass("active"); // this specific clicked li element
+      // The jQuery css() method sets or returns one or more style properties for the selected elements.
       $(".content>div").css({ display: "none" });
       //The eq() method returns an element with a specific index number (starting from 0) of the selected elements.
-      $(".content>div").eq($(this).index()).css({ display: "block" });
+      $(".content>div").eq(li_index).css({ display: "block" });
+      $(".imgWrap").css({ left: -400 * li_index });
+      //   $(".imgWrap")
+      //     .stop()
+      //     .animate({ left: -400 * li_index }, 1000); //1000ms
+      //document.querySelector(".imgWrap").style.left = `${-400 * li_index}px`; // same as above!
+    });
+    $(".menu").click(function () {
+      // menu is click
+      $(".box").css({ left: 0 });
+      $(".shadow").show(); // jquery show() is display block, hide() is display none
+    });
+    $(".close").click(function () {
+      $(".box").css({ left: "-100%" }); // % must be in string ""
+      $(".shadow").hide();
     });
   </script>
 </html>
