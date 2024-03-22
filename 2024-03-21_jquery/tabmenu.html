@@ -138,10 +138,10 @@
       $(".content>div").css({ display: "none" });
       //The eq() method returns an element with a specific index number (starting from 0) of the selected elements.
       $(".content>div").eq(li_index).css({ display: "block" });
-      $(".imgWrap").css({ left: -400 * li_index });
-      //   $(".imgWrap")
-      //     .stop()
-      //     .animate({ left: -400 * li_index }, 1000); //1000ms
+      //$(".imgWrap").css({ left: -400 * li_index });
+      $(".imgWrap")
+        .stop()
+        .animate({ left: -400 * li_index }, 1000); //1000ms
       //document.querySelector(".imgWrap").style.left = `${-400 * li_index}px`; // same as above!
     });
     $(".menu").click(function () {

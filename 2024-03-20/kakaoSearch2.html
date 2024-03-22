@@ -51,7 +51,7 @@
       try {
         // axios.get(url).then().catch()
         const url = "https://dapi.kakao.com/v2/search/web";
-        const auth = `Authorization: KakaoAK ${process.env.REST_API_KEY}`;
+        const auth = `Authorization: KakaoAK ${process.env.KAKAO_REST_API_KEY}`;
         const response = await axios.get(url, {
           headers: { auth },
           params: {},

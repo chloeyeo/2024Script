@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      ul,
+      li {
+        list-style: none;
+      }
+      a:link,
+      a:visited {
+        text-decoration: none;
+        color: #333;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .layer {
+        display: flex;
+        gap: 10px;
+      }
+      .layer > li {
+        width: 300px;
+      }
+      .layer img {
+        width: 100%;
+      }
+      /*layer*/
+      .glaylayer {
+        position: fixed;
+        width: 50%;
+        height: 50%;
+        background-color: rgba(0, 0, 0, 0.3);
+        display: none;
+        justify-content: center;
+        align-items: center;
+      }
+      .overlayer {
+        display: flex;
+        flex-direction: column;
+      }
+      .closeWrap {
+        display: flex;
+        justify-content: flex-end;
+        font-size: 1.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="layer">
+      <li>
+        <!-- use a tag instead of cursor pointer 
+        a tag when href is # its default behaviour is scroll instantly to top of screen
+        so when use e.preventDefault on a tag it no longer does that -->
+        <a href="images/img1.jpg" class="modal"
+          ><img src="images/img1.jpg" alt=""
+        /></a>
+      </li>
+      <li>
+        <a href="images/img2.jpg" class="modal"
+          ><img src="images/img2.jpg" alt=""
+        /></a>
+      </li>
+      <li>
+        <a href="images/img3.jpg" class="modal"
+          ><img src="images/img3.jpg" alt=""
+        /></a>
+      </li>
+    </ul>
+    <div class="glaylayer">
+      <div class="overlayer">
+        <div class="closeWrap">
+          <a href="#"><i class="fa-solid fa-xmark"></i></a>
+        </div>
+        <img src="images/img1.jpg" alt="" />
+      </div>
+    </div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(".modal").click(function (event) {
+      event.preventDefault(); // stop a tag's link default action
+      // alert("clicked");
+      //let modalIndex = $(this).index(); // 0 bc it's always 0th modal inside <li>
+      $(".glaylayer").css({ display: "flex" });
+      let modalImgLink = $(this).attr("href");
+      $(".overlayer img").attr("src", modalImgLink);
+    });
+    $(".closeWrap a").click(function (event) {
+      $(".glaylayer").css({ display: "none" });
+    });
+  </script>
+</html>
