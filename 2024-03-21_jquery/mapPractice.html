@@ -42,7 +42,7 @@
       function showView() {
         getWeatherData();
         createMap();
-        createImageMarker();
+        createImageMarker(); // 2번 클릭하면 이미지가 갑자기 보인다..
         createRoadView();
         //if a function assigns to a variable then it is assumed to be a local variable,
         //even if there is a global variable of the same name.
@@ -126,6 +126,8 @@
 
       function onClick() {
         function success(position) {
+          console.log("statusText: " + statusText);
+          statusText = "";
           latitude = position.coords.latitude; // horizontal
           longitude = position.coords.longitude; // vertical
           statusText += `latitude: ${latitude}, longitude: ${longitude}<br>`;
