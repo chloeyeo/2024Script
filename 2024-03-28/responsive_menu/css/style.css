@@ -96,7 +96,12 @@ then you can change that specific container via .container .someClass {} css */
   AND width) OR parent has padding (both y and x), parent will not
   appear on screen. ALSO even if parent has both height&width or padding
   set, if parent's POSITION is set to ABSOLUTE, parent will DISAPPEAR
-  on screen UPLESS its LEFT/RIGHT/TOP/BOTTOM is SET to some value!! */
+  on screen UPLESS its LEFT/RIGHT/TOP/BOTTOM is SET to some value!!
+  
+  The reason why I said don't set height EXCEPT to img sliders
+  is bc for img slider the size needs to be fixed, so that
+  even if the inner images or content of the slider becomes larger
+  the entire slider size stays the same!*/
   padding: 20px 0px;
   background: white;
 }
