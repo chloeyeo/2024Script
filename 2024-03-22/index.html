@@ -29,12 +29,15 @@
       }
       body {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+        background-color: rgb(255, 255, 233);
       }
       .layer {
         display: flex;
         gap: 10px;
+        width: 90%;
       }
       .layer > li {
         width: 300px;
@@ -47,13 +50,14 @@
         position: fixed;
         width: 50%;
         height: 50%;
-        background-color: rgba(0, 0, 0, 0.3);
+        /* background-color: rgba(0, 0, 0, 0.3); */
         display: none;
         justify-content: center;
         align-items: center;
       }
       .overlayer {
         display: flex;
+        width: 100%;
         flex-direction: column;
       }
       .closeWrap {
@@ -61,9 +65,15 @@
         justify-content: flex-end;
         font-size: 1.5em;
       }
+      .open {
+        display: flex;
+        justify-self: start;
+        /* align-self: start; */
+      }
     </style>
   </head>
   <body>
+    <button class="open">Open Sidebar</button>
     <ul class="layer">
       <li>
         <!-- use a tag instead of cursor pointer 
@@ -87,6 +97,7 @@
     <div class="glaylayer">
       <div class="overlayer">
         <div class="closeWrap">
+          <!-- <a href="javascript:void(0)"> prevents moving to # link -->
           <a href="#"><i class="fa-solid fa-xmark"></i></a>
         </div>
         <img src="images/img1.jpg" alt="" />
@@ -104,7 +115,25 @@
       $(".overlayer img").attr("src", modalImgLink);
     });
     $(".closeWrap a").click(function (event) {
+      event.preventDefault();
       $(".glaylayer").css({ display: "none" });
     });
+    $(".glaylayer").click(function () {
+      $(this).hide();
+    });
+    let nums = [10, 20, 40];
+    let total = 0;
+    for (const [index, num] of nums.entries()) {
+      console.log(`${num} in nums at index ${index}`);
+      total += num;
+    }
+    for (const indexValPair of nums.entries()) {
+      console.log(indexValPair);
+    }
+    // nums.forEach((num, index) => {
+    //   console.log(`${num} at index ${index}`);
+    //   total += num;
+    // });
+    console.log(`total: ${total}`);
   </script>
 </html>

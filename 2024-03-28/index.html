@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      ul,
+      li {
+        list-style: none;
+      }
+      a:link,
+      a:visited {
+        text-decoration: none;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <ul class="list">
+        <li>
+          <div class="card">
+            <img src="" alt="" />
+            <h3 class="cardTitle">
+              <a href="#">Lorem ipsum dolor sit amet.</a>
+            </h3>
+            <div class="content">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Distinctio eum delectus provident laudantium pariatur optio unde
+              fugiat repellat corrupti vitae.
+            </div>
+            <div class="date">2024.06.13</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- <script src="./data.js"></script>
+    <script>
+        //my js file. since we did script src ./data.js, we don't put export in data.js!
+    </script> -->
+    <script type="module">
+      // import module will NOT work unless we add type="module" on script tag!!
+      // if we do export default singleModule in data.js, e.g. export default data (export single data object)
+      // then we can do import {someOtherName} from data js console log(someOtherName) and
+      // it will automatically recognise that someOtherName is the same object as the data object thatdata.js exported
+      // this works the same for export {} but it will still work when there is only single module exported
+      // i.e. export {data} will still make it work for someOtherName to recognise
+      // but if there are more than one exports it will not recognise that someOtherName is same as data
+      import { data } from "./data.js"; // since we didnt export default single but instead did multiple export {}, we have to import {data} and not data.
+      // OR <script src="./data.js"> and don't use export in data.js
+      console.log(data);
+      let listData = ``;
+      for (let i = 0; i < data.length; i++) {
+        listData += `<li>
+          <div class="card">
+            <img src="" alt="" />
+            <h3 class="cardTitle">
+              <a href="#">${data[i].title}</a>
+            </h3>
+            <div class="content">
+                ${data[i].content}
+            </div>
+            <div class="date">${data[i].date}</div>
+          </div>
+        </li>`;
+      }
+      document.querySelector(".list").innerHTML = listData; // if you use jquery, just use this line (jquery only used with vanilla JS, not used with react)
+    </script>
+  </body>
+</html>

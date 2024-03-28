@@ -18,12 +18,7 @@
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/browse/cornerstone-web-image-loader@2.1.1/dist/cornerstoneWebImageLoader.min.js"></script>
     <script>
-      import * as cornerstone from "cornerstone-core";
-      import * as cornerstoneWebImageLoader from "cornerstone-web-image-loader";
-      cornerstoneWebImageLoader.external.cornerstone = cornerstone;
-      cornerstoneWebImageLoader.configure();
       var container = document.getElementById("map");
       let latitude,
         longitude,
@@ -47,7 +42,6 @@
       function showView() {
         getWeatherData();
         createMap();
-        createImageMarker(); // 2번 클릭하면 이미지가 갑자기 보인다..
         createRoadView();
       }
 
@@ -73,33 +67,6 @@
         map = new kakao.maps.Map(container, options);
       }
 
-      async function createImageMarker() {
-        imageSize = new kakao.maps.Size(100, 60); // 마커이미지의 크기입니다
-        imageOption = { offset: new kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-
-        // Images loaded as follows will be passed to our loadImage function:
-        const iconImg = await cornerstone.loadImage(weatherImageUrl); // a promise
-        console.log(iconImg);
-
-        // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
-        markerImage = new kakao.maps.MarkerImage(
-          weatherImageUrl, // is it bc we didn't JSON.parse(JSON.stringify) here?? 1. do this then change back to original object
-          imageSize,
-          imageOption
-        );
-
-        markerPosition = new kakao.maps.LatLng(latitude, longitude); // 마커가 표시될 위치입니다
-
-        // 마커를 생성합니다
-        marker = new kakao.maps.Marker({
-          position: markerPosition,
-          image: markerImage, // 마커이미지 설정
-        });
-
-        // 마커가 지도 위에 표시되도록 설정합니다
-        marker.setMap(map);
-      }
-
       async function getWeatherData() {
         try {
           weatherDataUrl = `https://api.openweathermap.org/data/2.5/weather`;
@@ -119,6 +86,27 @@
           statusText += `Current weather: ${weather}<br>`;
           statusText += `It is now currently ${temp} degrees<br>`;
           $(".status").html(statusText);
+
+          imageSize = new kakao.maps.Size(80, 80); // 마커이미지의 크기입니다
+          imageOption = { offset: new kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+
+          // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+          markerImage = new kakao.maps.MarkerImage(
+            weatherImageUrl, // is it bc we didn't JSON.parse(JSON.stringify) here?? 1. do this then change back to original object
+            imageSize,
+            imageOption
+          );
+
+          markerPosition = new kakao.maps.LatLng(latitude, longitude); // 마커가 표시될 위치입니다
+
+          // 마커를 생성합니다
+          marker = new kakao.maps.Marker({
+            position: markerPosition,
+            image: markerImage, // 마커이미지 설정
+          });
+
+          // 마커가 지도 위에 표시되도록 설정합니다
+          marker.setMap(map);
         } catch (error) {
           console.error(error.message);
         }
