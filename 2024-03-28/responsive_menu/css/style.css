@@ -32,14 +32,7 @@ body {
   background-color: skyblue;
 }
 
-.container {
-  /* w1200 tab  width 1200px creates a scroll under 1200px width bc of the container
-  so instead if we make .container width 100% it won't create a scroll if we reduce screen size */
-  /* width: 1200px; */
-  width: 100%;
-  margin: 0 auto;
-}
-
+/* hamburger button */
 .toggle {
   width: 30px;
   height: 30px;
@@ -48,6 +41,13 @@ body {
 }
 
 /* container */
+.container {
+  /* w1200 tab  width 1200px creates a scroll under 1200px width bc of the container
+  so instead if we make .container width 100% it won't create a scroll if we reduce screen size */
+  /* width: 1200px; */
+  width: 100%;
+  margin: 0 auto;
+}
 .layout {
   display: flex;
   justify-content: space-between;
@@ -57,19 +57,34 @@ body {
   align-items: center;
 }
 
-/* navigation (hamburger menu toggle button) */
+/* navigation (menu) */
 .gnbMenu {
-  background: red;
+  /* background: blue;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; */
 }
 .gnbMenu > ul {
   display: flex;
+  flex-direction: row;
   gap: 10px;
-  /* background: purple; */
 }
 .gnbMenu a {
   display: block;
   padding: 10px 16px;
+  background-color: red;
 }
+/* .toggle {
+  display: block;
+  /* we can use z-index if parent is flex or itself is flex */
+/* z-index: 10; */
+/* why does it not appear if we don't use z-index here.. */
+/* }  */
 
 /*css responsive start*/
 /* bootstrap navbar was doing this responsive part automatically */
@@ -90,9 +105,27 @@ body {
 @media screen and (max-width: 767px) {
   .toggle {
     display: block;
+    /* why does it not show without z-index?? */
+    z-index: 10;
+  }
+  .gnbMenu > ul {
+    /* display: flex; */
+    flex-direction: column;
+    /* gap: 10px; */
   }
   .gnbMenu {
-    display: none;
+    /* background: blue; */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .gnbMenu.active {
+    left: 0;
   }
 }
 @media screen and (max-width: 575px) {
