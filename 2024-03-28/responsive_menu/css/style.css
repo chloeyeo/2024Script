@@ -4,6 +4,9 @@
 * {
   margin: 0;
   padding: 0;
+  /* border-box allows SIZE (width and height) of elements
+  to CONTAIN/INCLUDE the content, padding, and border,
+  but do NOT include the margin. */
   box-sizing: border-box;
 }
 
@@ -117,7 +120,13 @@ then you can change that specific container via .container .someClass {} css */
 @media screen and (max-width: 767px) {
   .toggle {
     display: block;
-    /* why does it not show without z-index?? */
+    /* why does it not show without z-index?? 
+    => bc gnbMenu is its sibling and
+    gnbMenu has displau:block which is the
+    default value. the <h1><a>Logo</a><h1>
+    is also its sibling but logo does not 
+    need z-index to appear since a tags
+    are display:inline-block by default. */
     z-index: 10;
   }
   .gnbMenu > ul {
@@ -126,18 +135,48 @@ then you can change that specific container via .container .someClass {} css */
     /* gap: 10px; */
   }
   .gnbMenu {
-    /* background: blue; */
-    position: absolute;
+    /* border: 1px solid #000; */
+    /* position:absolute; // DOES NOT WORK*/
+    /* 
+The position: absolute CSS property positions an element relative
+to its nearest positioned ancestor. A positioned element is one
+whose position property is set to anything other than static. */
+    position: fixed;
+    /* reason why position absolute will not work:
+    before we had header element, gnbMenu had no parent with
+    "position" field, so when gnbMenu position was set to
+    relative, it was set relative to viewport. However
+    when there is header, we have set position:fixed to
+    header which means header HAS the "position" field.
+    Then position absolute will find any parent with the
+    position field (fixed/relative/etc) to base its position on,
+    so now gnbMenu top and left will be based on HEADER's position
+    which is why gnbMenu won't be at center of viewport,
+    but instead at the center of header if I put position:relative.
+    
+    Reason why position fixed works:
+    position fixed positions element relative to the VIEWPORT,
+    REGARDLESS OF its ANCESTOR'S POSTIONS! */
     width: 100%;
     height: 100%;
-    top: 0;
+    top: 0%;
+    /* why do we set -100%? to make menu disappear? => YES. 
+    if smaller than or equal to 767 px, the menu should
+    disappear and reappear when gnbMenu is active
+    i.e when click hamburger/toggle button and gnbMenu
+    has active class (left:0) */
     left: -100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* despite setting align items center
+    why is gnbMenu still at the top... */
   }
   .gnbMenu.active {
     left: 0;
+    /* even though top and left is 0,
+    it will be at center of viewport since we gave
+    dflex justify center and align items center to gnbMenu! */
   }
   .container {
     /* w100p tab */
