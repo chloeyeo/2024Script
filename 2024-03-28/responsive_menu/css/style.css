@@ -27,3 +27,74 @@ img {
   display: block;
 }
 /*reset end */
+
+body {
+  background-color: skyblue;
+}
+
+.container {
+  /* w1200 tab  width 1200px creates a scroll under 1200px width bc of the container
+  so instead if we make .container width 100% it won't create a scroll if we reduce screen size */
+  /* width: 1200px; */
+  width: 100%;
+  margin: 0 auto;
+}
+
+.toggle {
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  display: none;
+}
+
+/* container */
+.layout {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+  /* align items center removes the default align items stretch (stretch is like fill container in figma) 
+  you can see if you put bg red on gnbmenu how it differes with or without align items center*/
+  align-items: center;
+}
+
+/* navigation (hamburger menu toggle button) */
+.gnbMenu {
+  background: red;
+}
+.gnbMenu > ul {
+  display: flex;
+  gap: 10px;
+  /* background: purple; */
+}
+.gnbMenu a {
+  display: block;
+  padding: 10px 16px;
+}
+
+/*css responsive start*/
+/* bootstrap navbar was doing this responsive part automatically */
+/* media query has 4 levels, whereas bootstrap has 5 levels of screen size */
+@media screen and (max-width: 1199px) {
+  body {
+    background-color: pink;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  body {
+    background-color: grey;
+  }
+}
+
+/* mobile size. max width 767px */
+@media screen and (max-width: 767px) {
+  .toggle {
+    display: block;
+  }
+  .gnbMenu {
+    display: none;
+  }
+}
+@media screen and (max-width: 575px) {
+}
+/*css responsive end*/
