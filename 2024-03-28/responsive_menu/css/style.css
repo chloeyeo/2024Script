@@ -32,20 +32,18 @@ body {
   background-color: skyblue;
 }
 
-/* hamburger button */
-.toggle {
-  width: 30px;
-  height: 30px;
-  background-color: red;
-  display: none;
-}
-
 /* container */
+/* make container FIXED with these vals, DO NOT change container
+if you want to change container element then don't directly change
+.container, instead add another class name to the specific container
+element you want to change e.g. <div class="container someClass">
+then you can change that specific container via .container .someClass {} css */
 .container {
   /* w1200 tab  width 1200px creates a scroll under 1200px width bc of the container
   so instead if we make .container width 100% it won't create a scroll if we reduce screen size */
-  /* width: 1200px; */
-  width: 100%;
+  width: 1200px;
+  /* width: 100%; */
+  /* margin 0 auto to center */
   margin: 0 auto;
 }
 .layout {
@@ -58,17 +56,6 @@ body {
 }
 
 /* navigation (menu) */
-.gnbMenu {
-  /* background: blue;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center; */
-}
 .gnbMenu > ul {
   display: flex;
   flex-direction: row;
@@ -77,14 +64,39 @@ body {
 .gnbMenu a {
   display: block;
   padding: 10px 16px;
-  background-color: red;
+  /* background-color: red; */
 }
-/* .toggle {
-  display: block;
-  /* we can use z-index if parent is flex or itself is flex */
-/* z-index: 10; */
-/* why does it not appear if we don't use z-index here.. */
-/* }  */
+/* hamburger button */
+.toggle {
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  display: none;
+}
+
+.header {
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  width: 100%;
+}
+
+.footer {
+  /* width: 100%; not needed since it's display block by default */
+  /* height: 100px; */
+  /* using height is not advised to use except for img sliders
+  instead of setting height to parent, set size of parent using PADDING
+  so that when inner children becomes larger than the parent,
+  the parent's size will automatically grow AS BTG AS the inner children.
+  The reason we use any padding at all to the parent is bc we have to 
+  first make parent APPEAR on screen. unless parent has (BOTH height
+  AND width) OR parent has padding (both y and x), parent will not
+  appear on screen. ALSO even if parent has both height&width or padding
+  set, if parent's POSITION is set to ABSOLUTE, parent will DISAPPEAR
+  on screen UPLESS its LEFT/RIGHT/TOP/BOTTOM is SET to some value!! */
+  padding: 20px 0px;
+  background: white;
+}
 
 /*css responsive start*/
 /* bootstrap navbar was doing this responsive part automatically */
@@ -126,6 +138,10 @@ body {
   }
   .gnbMenu.active {
     left: 0;
+  }
+  .container {
+    /* w100p tab */
+    width: 100%;
   }
 }
 @media screen and (max-width: 575px) {
