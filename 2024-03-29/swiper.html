@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .slideImg img {
+        width: 100%;
+        display: block;
+        /* img tag is display inline block by default so slideImg bg color will show
+        even if slideImg img is width100%, so we make slideImg Img display block and now slideImg bg color will not show. */
+      }
+      /* .slideWrap {
+        width: 200px;
+        background: red;
+      } */
+      .wrap {
+        height: 400px;
+        /* overflow: hidden; */
+      }
+      .container {
+        height: 400px;
+        background: red;
+        /* wrap is also 400px and container is 400px both for height
+        but wrap image overflows. to fix this:
+        EITHER 1) use background image
+        OR 2)  */
+      }
+      .slideImg {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 400px;
+        background: no-repeat center;
+        /* background-size: cover; */
+        background-size: 600px;
+        background-color: pink;
+        /* margin 0 auto is to center SELF in horizontal center only
+        and dflex is to center CHILD both horizontally and vertically
+        position left/right/top/bottom is also to center SELF*/
+        /* 1: does not work since background position default
+        overwrites background position center written first*/
+        /* background-position: center;
+        background: pink url("./images/img1.jpg") no-repeat;  */
+        /* 1 end */
+        /* 2 start this works since bgposition comes after */
+        /* background: pink url("./images/img1.jpg") no-repeat;
+        background-position: center; */
+        /* 2 end */
+        /* 3 start this also works */
+        /* background: pink url("./images/img1.jpg") no-repeat center; */
+        /* 3 end */
+        /* why does adding cover to bg does not work
+        bc we need to add cover to background-size, not background. */
+        /* background: pink url("./images/img1.jpg") no-repeat center; */
+        /* background-position: 100px 50px; left top */
+        /* background-position: center top; */
+      }
+
+      /* better to use background image and give center
+      to background to center the image and change
+      size of image by background-size, rather than centering
+      img tag itself since that requries position etc */
+      .slideImg.bgImg01 {
+        background-image: url("./images/img1.jpg");
+      }
+      .slideImg.bgImg02 {
+        background-image: url("./images/img2.jpg");
+      }
+      .slideImg.bgImg03 {
+        background-image: url("./images/img3.jpg");
+      }
+      .slideImg.bgImg04 {
+        background-image: url("./images/img4.jpg");
+      }
+      .slideImg.bgImg05 {
+        background-image: url("./images/img5.jpg");
+      }
+      .slideImg.bgImg06 {
+        background-image: url("./images/img6.jpg");
+      }
+      .header {
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        flex-direction: column;
+        /* DFLEX - 크기값 안줘도 자기 크기 만큼 나오게 함
+        MARGIN 0 AUTO - 크기값이 무조건 있어야 함 */
+      }
+      .header h1 {
+        /* margin: 0 auto; */
+        /* margin 0 auto does not work unless you give width
+        bc h1 is display block */
+        /* width: 400px; */
+        background-color: green;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <div class="header">
+      <h1>test</h1>
+      <h1>test</h1>
+      <h1>test</h1>
+    </div>
+    <div class="wrap">
+      <swiper-container class="slideWrap">
+        <swiper-slide class="slideImg bgImg01"> text1</swiper-slide>
+        <swiper-slide class="slideImg bgImg02"> text2</swiper-slide>
+        <swiper-slide class="slideImg bgImg03"> text3</swiper-slide>
+        <swiper-slide class="slideImg bgImg04"> text4</swiper-slide>
+        <swiper-slide class="slideImg bgImg05"> text5</swiper-slide>
+        <swiper-slide class="slideImg bgImg06"> text6</swiper-slide>
+        <!-- <swiper-slide class="slideImg"
+          ><img src="./images/img2.jpg" alt=""
+        /></swiper-slide>
+        <swiper-slide class="slideImg"
+          ><img src="./images/img3.jpg" alt=""
+        /></swiper-slide>
+        <swiper-slide class="slideImg"
+          ><img src="./images/img4.jpg" alt=""
+        /></swiper-slide>
+        <swiper-slide class="slideImg"
+          ><img src="./images/img5.jpg" alt=""
+        /></swiper-slide>
+        <swiper-slide class="slideImg"
+          ><img src="./images/img6.jpg" alt=""
+        /></swiper-slide> -->
+      </swiper-container>
+      <div class="container"></div>
+    </div>
+  </body>
+</html>

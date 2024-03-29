@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        /* margin 0 removes the skyblue/img background and
+        only shows pink text */
+        box-sizing: border-box;
+      }
+      .slideImg img {
+        display: block;
+        height: 100%;
+        object-fit: center;
+        position: absolute;
+        /* if put position absolute to slide img img
+        now the text shows up after slideImg removing dflex */
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .wrap {
+        height: 400px;
+        /* overflow: hidden; */
+      }
+      .container {
+        height: 400px;
+        background: red;
+      }
+      .slideImg {
+        /* display: flex;
+        align-items: center;
+        justify-content: center; */
+        /* if we uncomment dflex
+        the text goes downwards hidden from view
+        bc h3 is block size element i.e. displauy block */
+        height: 400px;
+        background-color: skyblue;
+      }
+
+      .textWrap {
+        position: relative;
+        /* if we put position relative to textWrap,
+        it changes from text being underneath image
+        to text showingon TOP OF image.
+        why??
+        => Elements without a position property set will
+        default to "position:static" which ignores all
+        positioning properties such as z-index. By setting
+        relative positioning to the header element you have
+        introduced the z-index positioning property to that
+        element bringing it in front of the no position
+        (=position static by default) element
+        which does not have a z-index property.
+        */
+        width: 1200px;
+        /* background-color: pink; */
+        margin: 0 auto;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        /* parent MUST HAVE HEIGHT in PX
+        for child to use height PERCENTAGE!! */
+      }
+      .textWrap.right {
+        justify-content: end;
+      }
+      .textBody {
+        position: relative;
+        background: white;
+        padding: 20px;
+      }
+
+      @media screen and (max-width: 1200px) {
+        .textWrap {
+          width: 100%;
+          justify-content: center !important;
+        }
+      }
+
+      /* better to use background image and give center
+      to background to center the image and change
+      size of image by background-size, rather than centering
+      img tag itself since that requries position etc */
+    </style>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <div class="wrap">
+      <swiper-container class="slideWrap">
+        <swiper-slide class="slideImg"
+          ><img src="./images/img1.jpg" alt="" />
+          <div class="textWrap.right">
+            <!--width:1200px. textWrap을 margin 0 auto로 놓고
+            textBody를 움직이기-->
+            <div class="textBody">
+              <h3>Lorem ipsum dolor sit amet.</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+          </div>
+        </swiper-slide>
+        <swiper-slide class="slideImg"
+          ><img src="./images/img2.jpg" alt=""
+        /></swiper-slide>
+        <swiper-slide class="slideImg"
+          ><img src="./images/img3.jpg" alt=""
+        /></swiper-slide>
+        <swiper-slide class="slideImg"
+          ><img src="./images/img4.jpg" alt=""
+        /></swiper-slide>
+        <swiper-slide class="slideImg"
+          ><img src="./images/img5.jpg" alt=""
+        /></swiper-slide>
+        <swiper-slide class="slideImg"
+          ><img src="./images/img6.jpg" alt=""
+        /></swiper-slide>
+      </swiper-container>
+      <div class="container"></div>
+    </div>
+  </body>
+</html>
