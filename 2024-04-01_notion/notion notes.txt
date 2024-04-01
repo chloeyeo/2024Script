@@ -1,0 +1,22 @@
+ctrl+shit+1 = h1
+ctrl+shitf+4 = box
+
+notion은 블록 단위(파일 아이콘)로 움직인다
+글 잡고 ctrl+shift+9 = 글 문서 생성, 블록 (페이지) 안으로 들어갈 수 있음. 블록 안에 페이지 형성.
+/page 하고 탭 눌러도 페이지 형성 되는데 글/title잡고 ctril+shift+9 누르는게 더 빠름.
+
+/데이타베이스 라고 하면 데이타베이스 - 인라인과 -전체페이지 가 있음. 인라인 형태는 테이블 엑셀 비슷한 형태로 나옴.
+엑셀과 다른점은 엑셀 한칸에 제목을 넣으면 그게 페이지 형태로 생성이 된다.
+예를 들면 첫번째 row 에 디자인이라고 이름 col아래에 넣으면 디자인이라는 title을 가진 하나의 페이지가 생성 된거다
+그다음 그 디자인 row를 눌러서 디자인 title을 가진 페이지를 오픈해서 그 안으로 들어갈 수 있다.
+
+in the row = theres also a tag col next to 이름 col. change tage col to 'date' - can set start date and end date.
+
+On third column, click on the + tab and click checkbox and make col name e.g. 완료 then now u have a checkbox made for a todo-list on notion
+
+해야할일 옆에 +tab 눌러서 calendar선택하면 옆에 방금 위에 게 해야할일 테이블에 있는데 그걸 반영한 캘린더 생성이 된다.
+
+
+
+
+
