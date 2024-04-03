@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid</title>
+    <style>
+      .container {
+        display: grid;
+        grid-template-columns: 1fr; /* One column for the entire width */
+        gap: 10px; /* Gap between items */
+      }
+
+      .full-width {
+        grid-column: 1 /2; /* Span the full width of the grid */
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Three columns */
+        gap: 10px; /* Gap between items */
+      }
+
+      img {
+        max-width: 100%; /* Ensure images don't exceed their container */
+        height: auto; /* Maintain aspect ratio */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="full-width">
+        <img src="./images/img1.jpg" alt="Image 1" />
+      </div>
+      <div class="grid-container">
+        <img src="./images/img2.jpg" alt="Image 2" />
+        <img src="./images/img3.jpg" alt="Image 3" />
+        <img src="./images/img4.jpg" alt="Image 4" />
+      </div>
+    </div>
+  </body>
+</html>
