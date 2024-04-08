@@ -24,16 +24,31 @@ body {
 }
 
 .panel {
+  position: relative;
   width: 600px;
   height: 300px;
   border: 1px solid #000;
-  margin-bottom: 10px;
   padding: 10px;
+}
+.panel > .bar {
+  width: 500px;
+  height: 10px;
+  border-radius: 5px;
+  background: red;
+  position: absolute;
+  left: 50px;
+  top: 190px;
+}
+.panel > .car {
+  position: absolute;
+  left: 50px;
+  top: 120px;
 }
 
 .btnWrap {
   display: flex;
   gap: 10px;
+  padding-top: 10px;
 }
 .btnWrap button {
   padding: 10px;

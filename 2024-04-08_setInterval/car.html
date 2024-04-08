@@ -15,14 +15,32 @@
       </div>
     </div>
     <div class="btnWrap">
-      <button>Start</button>
-      <button>Stop</button>
+      <button class="startBtn">Start</button>
+      <button class="stopBtn">Stop</button>
     </div>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      // position().left = PARENT position's left!
+      let startPos = $(".car").position().left;
+      let endPos = startPos + $(".bar").width() - $(".car").width(); // 50 + 500 - 120
+      let step = 2;
+      let currPos = startPos;
+      let interval;
+      let doubleClick = true;
+
+      $(".startBtn").click(function () {
+        if (doubleClick) {
+          doubleClick = false;
+          interval = setInterval(function () {
+            currPos += step;
+            $(".car").css("left", currPos);
+          }, 30);
+        }
+      });
+      $(".stopBtn").click(function () {
+        doubleClick = true;
+        clearInterval(interval);
+      });
+    </script>
   </body>
 </html>

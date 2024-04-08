@@ -32,17 +32,38 @@ body {
 }
 
 .panel {
+  position: relative;
   width: 600px;
   height: 300px;
   // bd + tab
   border: 1px solid #000;
-  margin-bottom: 10px;
   padding: 10px;
+  > .bar {
+    width: 500px;
+    height: 10px;
+    border-radius: 5px;
+    background: red;
+    position: absolute;
+    left: 50px;
+    top: 190px;
+  }
+  > .car {
+    // w120 X h70
+    // end position: 500px (line width) - 120 (car width) = 380px
+    position: absolute;
+    left: 50px;
+    top: calc(190px - 70px);
+  }
 }
 
 .btnWrap {
   display: flex;
+  //   width: 600px;
+  //   align-self: stretch;
+  //   background: red;
+  //   justify-content: center;
   gap: 10px;
+  padding-top: 10px;
   button {
     padding: 10px;
   }
