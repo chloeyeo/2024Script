@@ -17,16 +17,18 @@ li {
   list-style: none;
 }
 
-html,
-body {
-  height: 100%;
-}
+// html,
+// body {
+//   height: 100%;
+//   // or just do height:100vh; on body only
+// }
 
 body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 .panel {
