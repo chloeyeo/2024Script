@@ -32,23 +32,24 @@
         if (doubleClick) {
           doubleClick = false;
           interval = setInterval(function () {
-            currPos += step;
-            $(".car").css("left", currPos);
-            if (currPos >= endPos) {
-              clearInterval(interval);
-              $(".car").addClass("rotate");
-              interval = setInterval(function () {
-                currPos -= step;
-                $(".car").css("left", currPos);
-                if (currPos <= startPos) {
-                  clearInterval(interval);
-                  $(".car").removeClass("rotate");
-                }
-              }, 30);
-            }
+            move();
           }, 30);
         }
       });
+
+      function move() {
+        currPos += step;
+        $(".car").css("left", currPos);
+        if (currPos >= endPos) {
+          $(".car").addClass("rotate");
+          step = -step; // becomes negative
+        }
+        if (currPos <= startPos) {
+          console.log("passed start");
+          $(".car").removeClass("rotate");
+          step = -step; // becomes positive again
+        }
+      }
       $(".stopBtn").click(function () {
         doubleClick = true;
         clearInterval(interval);
