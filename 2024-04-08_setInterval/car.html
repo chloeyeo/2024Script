@@ -34,6 +34,9 @@
           interval = setInterval(function () {
             currPos += step;
             $(".car").css("left", currPos);
+            if (currPos >= endPos) {
+              clearInterval(interval);
+            }
           }, 30);
         }
       });
