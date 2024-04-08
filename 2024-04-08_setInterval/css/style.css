@@ -44,6 +44,9 @@ body {
   left: 50px;
   top: 120px;
 }
+.panel > .car.rotate {
+  transform: rotateY(180deg);
+}
 
 .btnWrap {
   display: flex;

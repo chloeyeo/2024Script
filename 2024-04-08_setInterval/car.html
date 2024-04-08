@@ -36,11 +36,13 @@
             $(".car").css("left", currPos);
             if (currPos >= endPos) {
               clearInterval(interval);
+              $(".car").addClass("rotate");
               interval = setInterval(function () {
                 currPos -= step;
                 $(".car").css("left", currPos);
                 if (currPos <= startPos) {
                   clearInterval(interval);
+                  $(".car").removeClass("rotate");
                 }
               }, 30);
             }

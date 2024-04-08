@@ -53,6 +53,9 @@ body {
     position: absolute;
     left: 50px;
     top: calc(190px - 70px);
+    &.rotate {
+      transform: rotateY(180deg);
+    }
   }
 }
 
