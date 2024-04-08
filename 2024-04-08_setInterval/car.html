@@ -36,6 +36,13 @@
             $(".car").css("left", currPos);
             if (currPos >= endPos) {
               clearInterval(interval);
+              interval = setInterval(function () {
+                currPos -= step;
+                $(".car").css("left", currPos);
+                if (currPos <= startPos) {
+                  clearInterval(interval);
+                }
+              }, 30);
             }
           }, 30);
         }
