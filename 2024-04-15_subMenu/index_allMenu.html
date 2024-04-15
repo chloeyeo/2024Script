@@ -26,6 +26,8 @@
       }
       .nav > ul {
         display: flex;
+        position: relative;
+        z-index: 1;
       }
       .nav > ul > li {
         flex-grow: 1;
@@ -42,8 +44,7 @@
         /* background-color: red; */
       }
       .nav > ul > li:hover {
-        /* flex-grow: 1.5; */
-        /* transition: 0.3s; */
+        flex-grow: 1.5;
         background-color: blue;
         /* flex-grow must be on li not on a tag */
       }
@@ -51,7 +52,6 @@
         color: white;
         /* transition: 0.3s; */
       }
-
       .nav > ul > li:hover .subMenu {
         opacity: 1;
         visibility: visible;
@@ -74,11 +74,22 @@
         transition: 0.3s;
         /* using visiblity as well, on hover submenu we won't be able view the menu1 going blue unless we hover menu1 directly */
         visibility: hidden;
-        transform: translateY(20px);
+        transform: translateY(10px);
       }
-      .nav > ul > li:nth-child(1) .subMenu {
+      /* .nav > ul > li:nth-child(1) .subMenu {
         /* display one Submenu at a time while coding */
-        display: block;
+      /* display: block;
+      } */
+      .nav .bg {
+        width: 100%;
+        background: gold;
+        height: 0;
+        position: absolute;
+        left: 0;
+        transition: 0.3s;
+      }
+      .nav:hover .bg {
+        height: 150px;
       }
     </style>
   </head>
@@ -86,6 +97,7 @@
     <div class="navWrap">
       <div class="nav">
         <ul>
+          <div class="bg"></div>
           <li>
             <a href="#">menu1</a>
             <div class="subMenu">

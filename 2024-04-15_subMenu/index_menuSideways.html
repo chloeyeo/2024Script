@@ -30,7 +30,7 @@
       .nav > ul > li {
         flex-grow: 1;
         transition: 0.3s;
-        position: relative;
+        /* position: relative; */
       }
       .nav > ul > li > a {
         display: flex;
@@ -75,6 +75,9 @@
         /* using visiblity as well, on hover submenu we won't be able view the menu1 going blue unless we hover menu1 directly */
         visibility: hidden;
         transform: translateY(20px);
+      }
+      .subMenu > ul {
+        display: flex;
       }
       .nav > ul > li:nth-child(1) .subMenu {
         /* display one Submenu at a time while coding */
