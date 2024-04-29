@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Table</title>
     <style>
         *{
             margin:0;
@@ -38,9 +38,15 @@
 <body>
 <div class="tableWrap">
     <table>
-        <colgroup><col width="10%" /><col /><col width="15%" /><col width="15%" /></colgroup>
-    <!--    <tr><th style="width:50px">no</th><th>subject</th><th style="width:80px">name</th><th style="width:100px">date</th></tr>-->
-        <tr><td>1</td><td class="left">lLorem ipsum.</td><td>Jack</td><td>2024.04.29</td></tr></table>
+        <thead>
+            <colgroup><col width="10%" /><col /><col width="15%" /><col width="15%" /></colgroup>
+            <tr style="background-color: lightgray;"><th>no</th><th>subject</th><th>name</th><th>date</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td class="left">lLorem ipsum.</td><td>Jack</td><td>2024.04.29</td></tr>
+        </tbody>
+        <tfoot><tr><th>total</th><td class="left">lLorem ipsum.</td><td>Jack</td><td>2024.04.29</td></tr></tfoot>
+    </table>
 </div>
 </body>
 </html>
