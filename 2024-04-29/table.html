@@ -6,6 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Table</title>
+    <!-- if using ul, li instead of table you have to set the size for each screen size to make it responsive
+    but using table it's much easier to make it responsive for all screen sizes  -->
     <style>
         *{
             margin:0;
@@ -18,10 +20,11 @@
             border-collapse:collapse;
         }
         table,tr,td,th{
-            border:1px solid black;
+            _border:1px solid black;
         }
         tr{
             height:50px;
+            border-bottom:1px solid black;
         }
         td{
             text-align:center;
@@ -32,6 +35,12 @@
         }
         .tableWrap{
             overflow-x:auto;
+            width:700px;
+            margin: 0 auto;
+        }
+        tr:hover{
+            background-color: black;
+            color:white;
         }
     </style>
 </head>
