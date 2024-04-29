@@ -13,7 +13,8 @@
             box-sizing:border-box;
         }
         table{
-            width:500px;
+            width:100%;
+            min-width:600px;
             border-collapse:collapse;
         }
         table,tr,td,th{
@@ -29,11 +30,17 @@
             text-align:start;
             padding-left:10px;
         }
+        .tableWrap{
+            overflow-x:auto;
+        }
     </style>
 </head>
 <body>
-<table>
-<!--    <colgroup><col><col><col><col></colgroup>-->
-    <tr><th style="width:50px">no</th><th>subject</th><th style="width:80px">name</th><th style="width:100px">date</th></tr><tr><td>1</td><td class="left">lLorem ipsum.</td><td>Jack</td><td>2024.04.29</td></tr></table>
+<div class="tableWrap">
+    <table>
+        <colgroup><col width="10%" /><col /><col width="15%" /><col width="15%" /></colgroup>
+    <!--    <tr><th style="width:50px">no</th><th>subject</th><th style="width:80px">name</th><th style="width:100px">date</th></tr>-->
+        <tr><td>1</td><td class="left">lLorem ipsum.</td><td>Jack</td><td>2024.04.29</td></tr></table>
+</div>
 </body>
 </html>
